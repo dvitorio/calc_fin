@@ -1,0 +1,26 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body{
+     min-height: 100vh;
+}
+
+.imageTitle{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     margin-top: 10vh;
+}
+
+.compound{
+     background-color: whitesmoke;
+}
+
+.result{
+     font-size: 1.75rem;
+     text-align: center;
+}

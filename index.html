@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcFin - sua calculadora financeira</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+  <!--APRESENTAÇÃO DO APLICATIVO E FRASE SECUNDÁRIA-->
+  <div class="d-none imageTitle">
+    <img src="img/calculator.png" alt="">
+    <h1 class="text-center text-dark" style="font-size: 5rem"> CalcFin</h1>
+    <h2 class="text-center text-dark">A sua calculadora financeira online</h2>
+    <button class="btn btn-dark">Clique aqui para começar</button>
+  </div>
+
+  <!--MENU DE OPÇÕES-->
+  <div class="ml-2 mt-2 row" id="btnCloseMenu">
+    <div class="col btn-group mx-auto">
+      <button class="btn btn-primary" onclick="openAmount()">Montante</button>
+      <button class="btn btn-primary" onclick="openCapital()">Capital</button>
+      <button class="btn btn-primary" onclick="openRate()">Taxa</button>
+      <button class="btn btn-primary">Período</button>
+      <button class="btn btn-primary">Juros</button>
+      <button class="btn btn-outline-danger" onclick="closeMenu()">SAIR</button>
+    </div>
+  </div>
+
+
+  <!--JUROS COMPOSTOS (MONTANTE)-->
+  <div class="d-none mt-5 row" id="compoundAmount">
+    <div class="border col-sm-4 compound container rounded">
+      <button class="btn float-right my-2" onclick="closeAmount()">X</button>
+      <h6 class="mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Montante (M)</h6>
+      <label class="form-label text-dark">Capital</label>
+      <input class="form-control mb-3" type="text" id="capitalAmount">
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Taxa (i)</label>
+          <input class="form-control mb-3" type="text" id="rateAmount">
+        </div>
+        <div class="col">
+          <label class="form-label">Período (t)</label>
+          <input class="form-control mb-3" type="text" id="timeAmount">
+        </div>
+      </div>
+      <button class="btn btn-block btn-success mb-3" onclick="calculateAmountCompound()">Calcular montante</button>
+      <input class="d-none form-control mb-3 result" type="text" id="inputAmountResult" disabled>
+      <div class="d-none row" id="btnAmountResult">
+        <div class="col">
+          <button class="btn btn-block btn-outline-danger mb-3" onclick="cleanAmount()">Limpar</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-block btn-danger mb-3" onclick="closeAmount()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--JUROS COMPOSTOS (CAPITAL)-->
+  <div class="d-none mt-5 row" id="compoundCapital">
+    <div class="border col-sm-4 compound container rounded">
+      <button class="btn float-right my-2" onclick="closeCapital()">X</button>
+      <h6 class="mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Capital (C)</h6>
+      <label class="form-label text-dark">Montante</label>
+      <input class="form-control mb-3" type="text" id="amountCapital">
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Taxa (i)</label>
+          <input class="form-control mb-3" type="text" id="rateCapital">
+        </div>
+        <div class="col">
+          <label class="form-label">Período (t)</label>
+          <input class="form-control mb-3" type="text" id="timeCapital">
+        </div>
+      </div>
+      <button class="btn btn-block btn-success mb-3" onclick="calculateCapitalCompound()">Calcular capital</button>
+      <input class="d-none form-control mb-3 result" type="text" disabled id="inputCapitalResult">
+      <div class="d-none row" id="btnCapitalResult">
+        <div class="col">
+          <button class="btn btn-block btn-outline-danger mb-3" onclick="cleanCapital()">Limpar</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-block btn-danger mb-3" onclick="closeCapital()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--JUROS COMPOSTOS (TAXA)-->
+  <div class="d-none mt-5 row" id="compoundRate">
+    <div class="border col-sm-4 compound container rounded">
+      <button class="btn float-right my-2" onclick="closeRate()">X</button>
+      <h6 class="mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Taxa (i)</h6>
+      <label class="form-label text-dark">Capital</label>
+      <input class="form-control mb-3" type="text" id="capitalRate">
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Tempo (t)</label>
+          <input class="form-control mb-3" type="text" id="timeRate">
+        </div>
+        <div class="col">
+          <label class="form-label">Montante (M)</label>
+          <input class="form-control mb-3" type="text" id="amountRate">
+        </div>
+      </div>
+      <button class="btn btn-block btn-success mb-3" onclick="calculateRateCompound()">Calcular taxa</button>
+      <input class="d-none form-control mb-3 result" type="text" disabled id="inputRateResult">
+      <div class="d-none row" id="btnRateResult">
+        <div class="col">
+          <button class="btn btn-block btn-outline-danger mb-3" onclick="cleanRate()">Limpar</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-block btn-danger mb-3" onclick="closeRate()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--JS SCRIPTS-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/comercialDiscount.js"></script>
+  <script src="js/compoundRate.js"></script>
+  <script src="js/paymentSeries.js"></script>
+</body>
+
+</html>
