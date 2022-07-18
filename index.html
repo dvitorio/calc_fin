@@ -17,6 +17,8 @@
 
 <body>
 
+
+
   <div class="generalContainer container-fluid">
     <!--APRESENTAÇÃO DO APLICATIVO E FRASE SECUNDÁRIA-->
     <div class="d-none imageTitle">
@@ -57,15 +59,15 @@
         <button class="btn float-right my-2" onclick="closeAmount()">X</button>
         <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Montante (M)</h6>
         <label class="form-label text-dark">Capital</label>
-        <input class="form-control mb-3" type="text" id="capitalAmount">
+        <input class="form-control mb-3" type="number" id="capitalAmount">
         <div class="row">
           <div class="col">
             <label class="form-label">Taxa (i)</label>
-            <input class="form-control mb-3" type="text" id="rateAmount">
+            <input class="form-control mb-3" type="number" id="rateAmount">
           </div>
           <div class="col">
             <label class="form-label">Período (t)</label>
-            <input class="form-control mb-3" type="text" id="timeAmount">
+            <input class="form-control mb-3" type="number" id="timeAmount">
           </div>
         </div>
         <button class="btn btn-block btn-success mb-3" onclick="calculateAmountCompound()">Calcular montante</button>
@@ -99,15 +101,15 @@
         <button class="btn float-right my-2" onclick="closeCapital()">X</button>
         <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Capital (C)</h6>
         <label class="form-label text-dark">Montante</label>
-        <input class="form-control mb-3" type="text" id="amountCapital">
+        <input class="form-control mb-3" type="number" id="amountCapital">
         <div class="row">
           <div class="col">
             <label class="form-label">Taxa (i)</label>
-            <input class="form-control mb-3" type="text" id="rateCapital">
+            <input class="form-control mb-3" type="number" id="rateCapital">
           </div>
           <div class="col">
             <label class="form-label">Período (t)</label>
-            <input class="form-control mb-3" type="text" id="timeCapital">
+            <input class="form-control mb-3" type="number" id="timeCapital">
           </div>
         </div>
         <button class="btn btn-block btn-success mb-3" onclick="calculateCapitalCompound()">Calcular capital</button>
@@ -129,19 +131,19 @@
         <button class="btn float-right my-2" onclick="closeRate()">X</button>
         <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Taxa (i)</h6>
         <label class="form-label text-dark">Capital</label>
-        <input class="form-control mb-3" type="text" id="capitalRate">
+        <input class="form-control mb-3" type="number" id="capitalRate">
         <div class="row">
           <div class="col">
             <label class="form-label">Tempo (t)</label>
-            <input class="form-control mb-3" type="text" id="timeRate">
+            <input class="form-control mb-3" type="number" id="timeRate">
           </div>
           <div class="col">
             <label class="form-label">Montante (M)</label>
-            <input class="form-control mb-3" type="text" id="amountRate">
+            <input class="form-control mb-3" type="number" id="amountRate">
           </div>
         </div>
         <button class="btn btn-block btn-success mb-3" onclick="calculateRateCompound()">Calcular taxa</button>
-        <input class="d-none form-control mb-3 result" type="text" disabled id="inputRateResult">
+        <input class="d-none form-control mb-3 result" type="number" disabled id="inputRateResult">
         <div class="d-none row" id="btnRateResult">
           <div class="col">
             <button class="btn btn-block btn-outline-secondary mb-3" onclick="cleanRate()">Limpar</button>
@@ -161,19 +163,19 @@
           <button class="btn float-right my-2" onclick="closeTime()">X</button>
           <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Tempo (t)</h6>
           <label class="form-label text-dark">Capital</label>
-          <input class="form-control mb-3" type="text" id="capitalTime">
+          <input class="form-control mb-3" type="number" id="capitalTime">
           <div class="row">
             <div class="col-sm-6">
               <label class="form-label">Taxa (i)</label>
-              <input class="form-control mb-3" type="text" id="rateTime">
+              <input class="form-control mb-3" type="number" id="rateTime">
             </div>
             <div class="col-sm-6">
               <label class="form-label">Montante (M)</label>
-              <input class="form-control mb-3" type="text" id="amountTime">
+              <input class="form-control mb-3" type="number" id="amountTime">
             </div>
           </div>
           <button class="btn btn-block btn-success mb-3" onclick="calculateTimeCompound()">Calcular período</button>
-          <input class="d-none form-control mb-3 result" type="text" disabled id="inputTimeResult">
+          <input class="d-none form-control mb-3 result" type="number" disabled id="inputTimeResult">
           <div class="d-none row" id="btnTimeResult">
             <div class="col">
               <button class="btn btn-block btn-outline-secondary mb-3" onclick="cleanTime()">Limpar</button>
