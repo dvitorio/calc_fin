@@ -5,14 +5,10 @@
 }
 
 body{
-     min-height: 100vh;
+     min-height: 90vh;
 }
 
-.generalContainer{
-     min-height: 100vh;
-}
-
-.imageTitle{
+#imageTitle{
      display: flex;
      align-items: center;
      justify-content: center;
@@ -32,15 +28,3 @@ body{
      text-align: center;
 }
 
-.footer{
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     flex-direction: column;
-     background-color: rgb(85, 78, 78);
-}
-
-.footer i{
-     color: white;
-     font-size: 1.25em;
-}

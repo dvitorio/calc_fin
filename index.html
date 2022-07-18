@@ -18,21 +18,19 @@
 <body>
 
 
-
-  <div class="generalContainer container-fluid">
-    <!--APRESENTAÇÃO DO APLICATIVO E FRASE SECUNDÁRIA-->
-    <div class="d-none imageTitle">
-      <div class="row">
+  <!--APRESENTAÇÃO DO APLICATIVO E FRASE SECUNDÁRIA-->
+    <div class="col imageTitle">
+      <div class="row" id="imageTitle">
         <img src="img/calculator.png" alt="">
         <h1 class="text-center text-dark" style="font-size: 5rem"> CalcFin</h1>
         <h2 class="text-center text-dark">A sua calculadora financeira online</h2>
-        <button class="btn btn-dark">Clique aqui para começar</button>
+        <button class="btn btn-dark" onclick="showMenu()">Clique aqui para começar!</button>
       </div>
     </div>
 
     <!--MENU DE OPÇÕES-->
-    <div class="mt-2">
-      <div class="form-check row">
+    <div class="menu mt-2">
+      <div class="d-none form-check row" id="menu">
         <div class="col-sm-3">
           <button class="btn btn-block btn-dark mb-1 shadow text-justify" onclick="openAmount()" id="btnAmount"><i
               class="fa-solid fa-sack-dollar"></i> Valor futuro da aplicação (Montante)</button>
@@ -48,6 +46,7 @@
         <div class="col-sm-3">
           <button class="btn btn-block btn-dark mb-1 shadow text-justify" onclick="openTime()" id="btnTime"><i
               class="fa-solid fa-hourglass-empty"></i> Tempo de retorno da aplicação (Período)</button>
+              <button class="btn btn-block btn-outline-dark text-justify" onclick="goHome()"><i class="fa-solid fa-house"></i> SAIR</button>
         </div>
       </div>
     </div>
@@ -93,7 +92,6 @@
         </div>
       </div>
     </div>
-
 
     <!--JUROS COMPOSTOS (CAPITAL)-->
     <div class="d-none mt-1 row" id="compoundCapital">
@@ -188,9 +186,8 @@
       </div>
     </div>
 
-  </div>
 
-  <div class="bg-dark container-fluid footer py-3">
+  <!--<div class="bg-dark container-fluid footer py-3">
     <div class="midias mb-2 mx-auto">
       <i class="fa-brands fa-linkedin-in ml-5"></i>
       <i class="fa-brands fa-github ml-5"></i>
@@ -200,7 +197,7 @@
     <div class="phrases">
       <h6 class="text-center text-secondary">&copy; Daniel Vitorio. Todos os direitos reservados - 2022</h6>
     </div>
-  </div>
+  </div>-->
 
 
 

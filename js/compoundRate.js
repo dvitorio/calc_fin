@@ -1,9 +1,18 @@
 /**MOSTRA TITULO DO APP */
-function showTitle(){
-     const title = document.querySelector('.imageTitle');
-     title.classList.remove('d-none');
+function showMenu(){
+     const title = document.getElementById("imageTitle");
+     title.classList.add('d-none');
+     const menu = document.querySelector('#menu');
+     menu.classList.remove('d-none');
 }
 
+/**RETORNA AO MENU DE OPÇÕES */
+function goHome(){
+     const home = document.getElementById("imageTitle");
+     home.classList.remove('d-none');
+     const titleRemove = document.getElementById("menu");
+     titleRemove.classList.add('d-none');
+}
 
 /** ABRE TELA DE MONTANTE*/
 function openAmount(){
