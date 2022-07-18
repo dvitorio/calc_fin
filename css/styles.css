@@ -8,6 +8,10 @@ body{
      min-height: 100vh;
 }
 
+.generalContainer{
+     min-height: 100vh;
+}
+
 .imageTitle{
      display: flex;
      align-items: center;
@@ -18,9 +22,25 @@ body{
 
 .compound{
      background-color: whitesmoke;
+     animation-name: compound;
+     animation-duration: .5s;
+     animation-timing-function: linear;
 }
 
 .result{
-     font-size: 1.75rem;
+     font-size: 1.25rem;
      text-align: center;
+}
+
+.footer{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: column;
+     background-color: rgb(85, 78, 78);
+}
+
+.footer i{
+     color: white;
+     font-size: 1.25em;
 }
