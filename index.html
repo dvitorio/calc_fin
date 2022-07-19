@@ -23,14 +23,15 @@
       <div class="row" id="imageTitle">
         <img src="img/calculator.png" alt="">
         <h1 class="text-center text-white" style="font-size: 5rem"> CalcFin</h1>
-        <h2 class="text-center text-white">A sua calculadora financeira online</h2>
-        <button class="btn btn-primary" onclick="showMenu()">Clique aqui para começar!</button>
+        <h2 class="text-center text-white">A sua calculadora online de juros compostos</h2>
+        <button class="btn btn-primary shadow-lg" onclick="showMenu()">Clique aqui para começar!</button>
       </div>
     </div>
 
     <!--MENU DE OPÇÕES-->
     <div class="menu mt-2">
       <div class="d-none col form-check row" id="menu">
+        <h4 class="col-sm-4 text-left text-white">Juros Compostos</h4>
         <div class="col-sm-3">
           <button class="btn btn-block btn-primary mb-1 shadow text-justify" onclick="openAmount()" id="btnAmount"><i
               class="fa-solid fa-sack-dollar"></i> Valor futuro (Montante)</button>
@@ -57,15 +58,15 @@
       <div class="border col-sm-6 compound container mx-auto px-auto rounded shadow">
         <button class="btn float-right my-2" onclick="closeAmount()">X</button>
         <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Montante (M)</h6>
-        <label class="form-label text-white">Capital</label>
+        <label class="form-label text-white">Capital (R$)</label>
         <input class="form-control mb-3" type="number" id="capitalAmount">
         <div class="row">
           <div class="col">
-            <label class="form-label text-white">Taxa (i)</label>
+            <label class="form-label text-white">Taxa (%)</label>
             <input class="form-control mb-3" type="number" id="rateAmount">
           </div>
           <div class="col">
-            <label class="form-label text-white">Período (t)</label>
+            <label class="form-label text-white">Período (meses)</label>
             <input class="form-control mb-3" type="number" id="timeAmount">
           </div>
         </div>
@@ -73,11 +74,11 @@
         <div class="d-none" id="amountResult">
           <div class="row">
             <div class="col-sm-6">
-              <label class="form-label text-white">Montante</label>
+              <label class="form-label text-white">Montante (R$)</label>
               <input class="d-none form-control mb-3 result" type="text" id="inputAmountResult" disabled>
             </div>
             <div class="col-sm-6">
-              <label class="form-label text-white">Juros</label>
+              <label class="form-label text-white">Juros (R$)</label>
               <input class="d-none form-control mb-3 result" type="text" id="inputInterestResult" disabled>
             </div>
           </div>
@@ -98,15 +99,15 @@
       <div class="border col-md-4 compound container rounded">
         <button class="btn float-right my-2" onclick="closeCapital()">X</button>
         <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Capital (C)</h6>
-        <label class="form-label text-white">Montante</label>
+        <label class="form-label text-white">Montante (R$)</label>
         <input class="form-control mb-3" type="number" id="amountCapital">
         <div class="row">
           <div class="col">
-            <label class="form-label text-white">Taxa (i)</label>
+            <label class="form-label text-white">Taxa (%)</label>
             <input class="form-control mb-3" type="number" id="rateCapital">
           </div>
           <div class="col">
-            <label class="form-label text-white">Período (t)</label>
+            <label class="form-label text-white">Período (meses)</label>
             <input class="form-control mb-3" type="number" id="timeCapital">
           </div>
         </div>
@@ -128,15 +129,15 @@
       <div class="border col-md-4 compound container rounded">
         <button class="btn float-right my-2" onclick="closeRate()">X</button>
         <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Taxa (i)</h6>
-        <label class="form-label text-white">Capital</label>
+        <label class="form-label text-white">Capital (R$)</label>
         <input class="form-control mb-3" type="number" id="capitalRate">
         <div class="row">
           <div class="col">
-            <label class="form-label text-white">Tempo (t)</label>
+            <label class="form-label text-white">Tempo (meses)</label>
             <input class="form-control mb-3" type="number" id="timeRate">
           </div>
           <div class="col">
-            <label class="form-label text-white">Montante (M)</label>
+            <label class="form-label text-white">Montante (R$)</label>
             <input class="form-control mb-3" type="number" id="amountRate">
           </div>
         </div>
@@ -159,16 +160,16 @@
       <div class="row">
         <div class="border col-md-4 compound container rounded">
           <button class="btn float-right my-2" onclick="closeTime()">X</button>
-          <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-dark">Juros Compostos - Tempo (t)</h6>
-          <label class="form-label text-dark">Capital</label>
+          <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Tempo (t)</h6>
+          <label class="form-label text-white">Capital (R$)</label>
           <input class="form-control mb-3" type="number" id="capitalTime">
           <div class="row">
             <div class="col-sm-6">
-              <label class="form-label">Taxa (i)</label>
+              <label class="form-label text-white">Taxa (%)</label>
               <input class="form-control mb-3" type="number" id="rateTime">
             </div>
             <div class="col-sm-6">
-              <label class="form-label">Montante (M)</label>
+              <label class="form-label text-white">Montante (R$)</label>
               <input class="form-control mb-3" type="number" id="amountTime">
             </div>
           </div>
@@ -187,17 +188,6 @@
     </div>
 
 
-  <!--<div class="bg-dark container-fluid footer py-3">
-    <div class="midias mb-2 mx-auto">
-      <i class="fa-brands fa-linkedin-in ml-5"></i>
-      <i class="fa-brands fa-github ml-5"></i>
-      <i class="fa-solid fa-envelope ml-5"></i>
-      <i class="fa-brands fa-whatsapp ml-5"></i>
-    </div>
-    <div class="phrases">
-      <h6 class="text-center text-secondary">&copy; Daniel Vitorio. Todos os direitos reservados - 2022</h6>
-    </div>
-  </div>-->
 
 
 

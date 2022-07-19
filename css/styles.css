@@ -23,18 +23,25 @@ body{
 }
 
 .compound{
-     max-width: 300px;
+     max-width: 400px;
      width: 100%;
      background-color: rgba(68, 59, 59, 0.552);
      animation-name: compound;
      animation-duration: .5s;
      animation-timing-function: linear;
-     margin-left: auto;
-     margin-right: auto;
 }
 
 .result{
      font-size: 1.25rem;
      text-align: center;
 }
+
+.result input{
+     border: 1px solid red;
+     background-color: rgb(241, 163, 163);
+     color: darkred;
+}
+
+
+
 
