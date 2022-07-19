@@ -4,7 +4,13 @@
      box-sizing: border-box;
 }
 
+h1, h2{
+     text-shadow: 1px 1px 1px black;
+}
+
 body{
+     background-image: url("/img/background.jpg");
+     background-size: cover;
      min-height: 90vh;
 }
 
@@ -17,10 +23,13 @@ body{
 }
 
 .compound{
-     background-color: whitesmoke;
+     max-width: 300px;
+     background-color: rgba(68, 59, 59, 0.552);
      animation-name: compound;
      animation-duration: .5s;
      animation-timing-function: linear;
+     margin-left: auto;
+     margin-right: auto;
 }
 
 .result{

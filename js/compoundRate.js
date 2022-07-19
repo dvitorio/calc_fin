@@ -14,6 +14,12 @@ function goHome(){
      titleRemove.classList.add('d-none');
 }
 
+/**FECHA O MENU DE OPÇÕES */
+function exitHome(){
+     home.classList.add('d-none');
+     titleRemove.classList.remove('d-none');
+}
+
 /** ABRE TELA DE MONTANTE*/
 function openAmount(){
      const openAmount = document.querySelector("#compoundAmount");
