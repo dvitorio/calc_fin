@@ -24,6 +24,7 @@ body{
 
 .compound{
      max-width: 300px;
+     width: 100%;
      background-color: rgba(68, 59, 59, 0.552);
      animation-name: compound;
      animation-duration: .5s;
