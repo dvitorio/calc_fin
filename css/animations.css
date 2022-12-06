@@ -16,7 +16,22 @@
      animation-duration: .5s;
 }
 
+#imageTitle{
+     animation-name: title;
+     animation-duration: .6s;
+     animation-timing-function: linear;
+}
+
 @keyframes compound {
+     0%{
+          transform: scale(0);
+     }
+     100%{
+          transform: scale(1);
+     }
+}
+
+@keyframes title {
      0%{
           transform: scale(0);
      }

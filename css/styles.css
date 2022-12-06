@@ -4,27 +4,37 @@
      box-sizing: border-box;
 }
 
-h1, h2{
+h1, h3{
      text-shadow: 1px 1px 1px black;
 }
 
 body{
      background-image: url("/img/background.jpg");
      background-size: cover;
-     min-height: 90vh;
+     min-height: 80vh;
 }
 
 #imageTitle{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
      display: flex;
      align-items: center;
      justify-content: center;
      flex-direction: column;
-     margin-top: 10vh;
+}
+
+.menu, .compound{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     min-width: 300px;
+     max-width: 500px;
 }
 
 .compound{
-     max-width: 400px;
-     width: 100%;
      background-color: rgba(68, 59, 59, 0.552);
      animation-name: compound;
      animation-duration: .5s;

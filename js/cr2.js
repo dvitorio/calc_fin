@@ -1,28 +1,38 @@
+var title = document.getElementById("imageTitle");
+var menu = document.querySelector('#menu');
+var openAmount = document.querySelector("#compoundAmount");
+var capitalAmount = parseFloat(document.getElementById("capitalAmount").value.replace(",", "."));
+var timeAmount = parseFloat(document.getElementById("timeAmount").value.replace(",", "."));
+var rateAmount = parseFloat(document.getElementById("rateAmount").value.replace(",", "."));
+var amountResult = document.getElementById("amountResult");
+var inputAmountResult = document.getElementById("inputAmountResult");
+var btnAmountResult = document.getElementById("btnAmountResult");
+
 /**ESCONDE TITULO DO APP E MOSTRA O MENU DE OPÇÕES*/
 function showMenu() {
-     const title = document.getElementById("imageTitle");
      title.classList.add('d-none');
-     const menu = document.querySelector('#menu');
      menu.classList.remove('d-none');
 }
 
 /**ESCONDE O MENU DE OPÇÕES */
 function hideMenu(){
-     const hideMenu = document.getElementById("menu");
      hideMenu.classList.add('d-none');
 }
 
 /**VOLTA PARA O MENU DE OPÇÕES */
 function goHome() {
-     const home = document.getElementById("imageTitle");
      home.classList.remove('d-none');
-     const titleRemove = document.getElementById("menu");
      titleRemove.classList.add('d-none');
+}
+
+/**FECHA O MENU DE OPÇÕES */
+function exitHome() {
+     home.classList.add('d-none');
+     titleRemove.classList.remove('d-none');
 }
 
 /** ABRE TELA DE MONTANTE*/
 function openAmount() {
-     const openAmount = document.querySelector("#compoundAmount");
      openAmount.classList.remove('d-none');
      closeCapital();
      closeRate();
@@ -32,20 +42,17 @@ function openAmount() {
 
 /**CALCULAR MONTANTE COMPOSTO */
 function calculateAmountCompound() {
-     const capitalAmount = parseFloat(document.getElementById("capitalAmount").value.replace(",", "."));
-     const timeAmount = parseFloat(document.getElementById("timeAmount").value.replace(",", "."));
-     const rateAmount = parseFloat(document.getElementById("rateAmount").value.replace(",", "."));
      if (capitalAmount > 0 && timeAmount > 0 && rateAmount > 0) {
           amountAmount = capitalAmount * Math.pow((1 + rateAmount / 100), timeAmount);
           interestAmount = amountAmount - capitalAmount;
           document.getElementById("inputAmountResult").value = "R$ " + amountAmount.toFixed(2);
           document.getElementById("inputInterestResult").value = "R$ " + interestAmount.toFixed(2);
-          const amountResult = document.getElementById("amountResult");
+
           amountResult.classList.remove('d-none');
           inputInterestResult.classList.remove('d-none');
-          const inputAmountResult = document.getElementById("inputAmountResult");
+
           inputAmountResult.classList.remove('d-none');
-          const btnAmountResult = document.getElementById("btnAmountResult");
+
           btnAmountResult.classList.remove('d-none');
      }
      else{
@@ -64,9 +71,8 @@ function cleanAmount() {
      document.getElementById("inputInterestResult").value = "";
 }
 
-/**FECHA TELA DE MONTANTE COMPOSTO*/
+/**FECHA TELA DE MONTANTE */
 function closeAmount() {
-     showMenu();
      cleanAmount();
      const closeAmount = document.getElementById("compoundAmount");
      closeAmount.classList.add('d-none');
@@ -83,12 +89,10 @@ function closeAmount() {
 function openCapital() {
      const openCapital = document.getElementById("compoundCapital");
      openCapital.classList.remove('d-none');
-     if(openAmount()){
-          closeAmount();
-          closeRate();
-          closeTime();
-          hideMenu();
-     }
+     closeAmount();
+     closeRate();
+     closeTime();
+     hideMenu();
 }
 
 /**CALCULAR CAPITAL COMPOSTO */
@@ -126,12 +130,12 @@ function closeCapital() {
 
 /**ABRE TELA DE TAXA */
 function openRate() {
-     hideMenu();
      const openRate = document.getElementById("compoundRate");
      openRate.classList.remove('d-none');
      closeAmount();
      closeCapital();
      closeTime();
+     hideMenu();
 }
 
 /**CALCULA A TAXA COMPOSTA */
