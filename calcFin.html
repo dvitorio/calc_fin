@@ -28,8 +28,8 @@
      <!--Menu de regimes de juros-->
      <div class="col-lg-4 container menu mx-auto p-2 radius shadow" id="menu">
           <h6 class="my-2 text-center text-primary">Para começar, escolha o regime de juros desejado</h6>
-          <button class="btn btn-outline-primary btn-block" id="btnJComp"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
           <button class="btn btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
+          <button class="btn btn-outline-primary btn-block" id="btnJComp"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
           <button class="btn btn-outline-secondary btn-block" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
      </div>
 
@@ -46,15 +46,16 @@
                     <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i class="fa-solid fa-filter-circle-dollar"></i> Taxa</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleTime"><i class="fa-regular fa-hourglass-half"></i> Tempo</button>
+                    <button class="btn btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i class="fa-regular fa-hourglass-half"></i> Tempo</button>
                </div>
-               <div class="col-sm-3 p-1">
-                    <button class="btn btn-outline-danger" id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
-               </div>
+          </div>
+          <div class="col-sm-3 p-1 mx-auto">
+               <button class="btn btnCloseMenuSimple btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
           </div>
      </div>
 
-     <!--MODAL JUROS SIMPLES-->
+
+     <!--Modal de montante de juros simples-->
      <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleAmountModal" id="simpleAmountModal">
           <h5 class="my-2 text-center text-secondary">Cálculo de montante simples</h5>
           <div class="row">
@@ -78,7 +79,37 @@
                     <input class="border-0 bg-white d-none form-control simpleAmountResult text-center text-secondary" type="text" id="simpleAmountResult" disabled>
                </div>
           </div>
-          <button class="btn btnCloseSimpleAmount btn-outline-danger d-none text-secondary" id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <button class="btn btnCleanSimpleAmount btn-danger d-none mb-3 text-white" id="btnCleanSimpleAmount"><i class="fa-solid fa-pencil"></i> Limpar</button>
+          <button class="btn btnCloseSimpleAmount btn-outline-danger d-none mb-3 text-secondary" id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
+     </div>
+
+
+     <!--Modal de capital de juros simples-->
+     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleCapitalModal" id="simpleCapitalModal">
+          <h5 class="my-2 text-center text-primary">Cálculo de capital simples</h5>
+          <div class="row">
+               <div class="col-sm-6 mt-2">
+                    <label class="form-label text-primary" for="simpleAmountCapital">Montante (M)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleAmountCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleTimeCapital">Tempo (t)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Meses" id="simpleTimeCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleRateCapital">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Mensal" id="simpleRateCapital">
+               </div>
+          </div>
+          <button class="btn btn-block btn-primary my-2" id="simpleCalculateCapital">Calcular capital</button>
+          <div class="row">
+               <div class="capitalResult col-sm-12 d-none mb-3" id="capitalResult">
+                    <label class="form-label text-center text-primary" for="simpleCapitalResult">Capital simples</label>
+                    <input class="border-0 bg-white d-none form-control simpleCapitalResult text-center text-primary" type="text" id="simpleCapitalResult" disabled>
+               </div>
+          </div>
+          <button class="btn btnCleanSimpleCapital btn-danger d-none mb-3 text-white" id="btnCleanSimpleCapital"><i class="fa-solid fa-pencil"></i> Limpar</button>
+          <button class="btn btnCloseSimpleCapital btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleCapital"><i class="fa-solid fa-xmark"></i> Sair</button>
      </div>
      
 
