@@ -1,207 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CalcFin - sua calculadora financeira</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Calculadora financeira</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="/calcFinSimp.css" defer>
+     <link rel="stylesheet" href="/calcAnimations.css" defer>
+     <link rel="icon" type="imagem/png" href="/img/calculator.png" />
+     <script src="/calcFinSimp.js" defer></script>
 </head>
-
 <body>
 
-  <!--APRESENTAÇÃO DO APLICATIVO E FRASE SECUNDÁRIA-->
-  <div class="imageTitle">
-    <div class="row" id="imageTitle">
-      <img src="img/calculator.png" alt="">
-      <h1 class="text-center text-white" style="font-size: 5rem"> CalcFin</h1>
-      <h3 class="font-weight-normal text-center text-white">A sua calculadora online de juros compostos</h3>
-      <button class="btn btn-primary shadow-lg" onclick="showMenu()">Clique aqui para começar!</button>
-    </div>
-  </div>
+     <!--Modal de confirmação de fechamento do aplicativo-->
+     <div class="border closeAppConfirm col-sm-3 d-none radius mt-3 mx-auto" id="closeAppConfirm">
+          <h5 class="text-center text-primary"></h5>
+          <h6 class="my-3 text-center text-primary">Tem certeza que deseja encerrar o aplicativo?</h6>
+          <button class="btn btn-outline-danger mb-3 w-25">Sim</button>
+          <button class="btn btn-outline-primary mb-3 w-25">Não</button>
+     </div>
 
-  <!--MENU DE OPÇÕES-->
-  <div class="menu mt-2">
-    <div class="d-none col form-check row" id="menu">
-      <h4 class="text-center text-white">Juros Compostos</h4>
-      <div class="col">
-        <button class="btn btn-block btn-primary mb-1 shadow text-justify" onclick="openAmount()" id="btnAmount"><i
-            class="fa-solid fa-sack-dollar"></i> Valor futuro (Montante)</button>
-      </div>
-      <div class="col">
-        <button class="btn btn-block btn-primary mb-1 shadow text-justify" onclick="openCapital()" id="btnCapital"><i
-            class="fa-solid fa-coins"></i> Valor inicial (Capital)</button>
-      </div>
-      <div class="col">
-        <button class="btn btn-block btn-primary mb-1 shadow text-justify" onclick="openRate()" id="btnRate"><i
-            class="fa-solid fa-percent"></i> Taxa de juros (Taxa)</button>
-      </div>
-      <div class="col">
-        <button class="btn btn-block btn-primary mb-1 shadow text-justify" onclick="openTime()" id="btnTime"><i
-            class="fa-solid fa-hourglass-empty"></i> Tempo de retorno (Período)</button>
-        <button class="btn btn-block btn-danger text-justify" onclick="goHome()"><i
-            class="fa-solid fa-house"></i> SAIR</button>
-      </div>
-    </div>
-  </div>
+     <!--Título da página-->
+     <div class="col-sm-6 col-lg-6 container general my-2 mx-auto p-2" id="general">
+          <h1 class="my-2 text-center text-primary">Calculadora financeira online</h1>
+     </div>
 
+     <!--Menu de regimes de juros-->
+     <div class="col-lg-4 container menu mx-auto p-2 radius shadow" id="menu">
+          <h6 class="my-2 text-center text-primary">Para começar, escolha o regime de juros desejado</h6>
+          <button class="btn btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
+          <button class="btn btn-outline-primary btn-block" id="btnJComp"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
+          <button class="btn btn-outline-secondary btn-block" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
+     </div>
 
-  <!--JUROS COMPOSTOS (MONTANTE)-->
-  <div class="d-none mt-1 row" id="compoundAmount">
-    <div class="border col-sm-6 compound container mx-auto px-auto rounded shadow">
-        <button class="btn btn-outline-danger float-right my-2" onclick="closeAmount()">X</button>
-        <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Montante (M)</h6>
-        <label class="form-label text-white">Capital (R$)</label>
-        <input class="form-control mb-3" type="number" id="capitalAmount">
-        <div class="row">
-          <div class="col">
-            <label class="form-label text-white">Taxa (%)</label>
-            <input class="form-control mb-3" type="number" id="rateAmount">
-          </div>
-          <div class="col">
-            <label class="form-label text-white">Período (meses)</label>
-            <input class="form-control mb-3" type="number" id="timeAmount">
-          </div>
-        </div>
-        <button class="btn btn-block btn-success mb-3" onclick="calculateAmountCompound()">Calcular montante</button>
-        <div class="d-none" id="amountResult">
+     <!--Menu de opções de juros simples-->
+     <div class="col-lg-6 container d-none menuButtons mx-auto" id="menuButtons">
           <div class="row">
-            <div class="col-sm-6">
-              <label class="form-label text-white">Montante (R$)</label>
-              <input class="d-none form-control mb-3 result" type="text" id="inputAmountResult" disabled>
-            </div>
-            <div class="col-sm-6">
-              <label class="form-label text-white">Juros (R$)</label>
-              <input class="d-none form-control mb-3 result" type="text" id="inputInterestResult" disabled>
-            </div>
+               <div class="col-sm-3 p-1">
+                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleAmount"><i class="fa-solid fa-money-bill-trend-up"></i> Montante</button>
+               </div>
+               <div class="col-sm-3 p-1">
+                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleCapital"><i class="fa-solid fa-circle-dollar-to-slot"></i> Capital</button>
+               </div>
+               <div class="col-sm-3 p-1">
+                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i class="fa-solid fa-filter-circle-dollar"></i> Taxa</button>
+               </div>
+               <div class="col-sm-3 p-1">
+                    <button class="btn btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i class="fa-regular fa-hourglass-half"></i> Tempo</button>
+               </div>
           </div>
-        </div>
-        <div class="d-none row" id="btnAmountResult">
-          <div class="col">
-            <button class="btn btn-block btn-outline-secondary mb-3" onclick="cleanAmount()">Limpar</button>
+          <div class="col-sm-3 p-1 mx-auto">
+               <button class="btn btnCloseMenuSimple btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
           </div>
-          <div class="col">
-            <button class="btn btn-block btn-secondary mb-3" onclick="closeAmount()">Fechar</button>
+     </div>
+
+     <!--Modal de montante de juros simples-->
+     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleAmountModal" id="simpleAmountModal">
+          <h5 class="my-2 text-center text-secondary">Cálculo de montante simples</h5>
+          <div class="row">
+               <div class="col-sm-6 mt-2">
+                    <label class="form-label text-secondary" for="simpleCapital">Capital (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-secondary" for="simpleTime">Tempo (t)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Meses" id="simpleTime">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-secondary" for="simpleRate">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Mensal" id="simpleRate">
+               </div>
           </div>
-        </div>
-    </div>
-  </div>
-
-  <!--JUROS COMPOSTOS (CAPITAL)-->
-  <div class="d-none mt-1 row" id="compoundCapital">
-    <div class="border col-md-4 compound container rounded">
-      <button class="btn btn-outline-danger float-right my-2" onclick="closeCapital()">X</button>
-      <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Capital (C)</h6>
-      <label class="form-label text-white">Montante (R$)</label>
-      <input class="form-control mb-3" type="number" id="amountCapital">
-      <div class="row">
-        <div class="col">
-          <label class="form-label text-white">Taxa (%)</label>
-          <input class="form-control mb-3" type="number" id="rateCapital">
-        </div>
-        <div class="col">
-          <label class="form-label text-white">Período (meses)</label>
-          <input class="form-control mb-3" type="number" id="timeCapital">
-        </div>
-      </div>
-      <button class="btn btn-block btn-success mb-3" onclick="calculateCapitalCompound()">Calcular capital</button>
-      <input class="d-none form-control mb-3 result" type="text" disabled id="inputCapitalResult">
-      <div class="d-none row" id="btnCapitalResult">
-        <div class="col">
-          <button class="btn btn-block btn-outline-secondary mb-3" onclick="cleanCapital()">Limpar</button>
-        </div>
-        <div class="col">
-          <button class="btn btn-block btn-secondary mb-3" onclick="closeCapital()">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--JUROS COMPOSTOS (TAXA)-->
-  <div class="d-none mt-1 row" id="compoundRate">
-    <div class="border col-md-4 compound container rounded">
-      <button class="btn btn-outline-danger float-right my-2" onclick="closeRate()">X</button>
-      <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Taxa (i)</h6>
-      <label class="form-label text-white">Capital (R$)</label>
-      <input class="form-control mb-3" type="number" id="capitalRate">
-      <div class="row">
-        <div class="col">
-          <label class="form-label text-white">Tempo (meses)</label>
-          <input class="form-control mb-3" type="number" id="timeRate">
-        </div>
-        <div class="col">
-          <label class="form-label text-white">Montante (R$)</label>
-          <input class="form-control mb-3" type="number" id="amountRate">
-        </div>
-      </div>
-      <button class="btn btn-block btn-success mb-3" onclick="calculateRateCompound()">Calcular taxa</button>
-      <input class="d-none form-control mb-3 result" type="text" disabled id="inputRateResult">
-      <div class="d-none row" id="btnRateResult">
-        <div class="col">
-          <button class="btn btn-block btn-outline-secondary mb-3" onclick="cleanRate()">Limpar</button>
-        </div>
-        <div class="col">
-          <button class="btn btn-block btn-secondary mb-3" onclick="closeRate()">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!--JUROS COMPOSTOS (TEMPO)-->
-  <div class="d-none mt-1" id="compoundTime">
-    <div class="row">
-      <div class="border col-md-4 compound container rounded">
-        <button class="btn btn-outline-danger float-right my-2" onclick="closeTime()">X</button>
-        <h6 class="font-weight-bold mb-3 mt-3 pt-3 text-center text-white">Juros Compostos - Tempo (t)</h6>
-        <label class="form-label text-white">Capital (R$)</label>
-        <input class="form-control mb-3" type="number" id="capitalTime">
-        <div class="row">
-          <div class="col-sm-6">
-            <label class="form-label text-white">Taxa (%)</label>
-            <input class="form-control mb-3" type="number" id="rateTime">
+          <button class="btn btn-block btn-primary my-2" id="simpleCalculateAmount">Calcular montante</button>
+          <div class="amountResult row">
+               <div class="col-sm-12 d-none mb-3" id="amountResult">
+                    <label class="form-label text-center text-secondary" for="simpleAmountResult">Montante simples</label>
+                    <input class="border-0 bg-white d-none form-control simpleAmountResult text-center text-primary" type="text" id="simpleAmountResult" disabled>
+               </div>
           </div>
-          <div class="col-sm-6">
-            <label class="form-label text-white">Montante (R$)</label>
-            <input class="form-control mb-3" type="number" id="amountTime">
+          <button class="btn btnCleanSimpleAmount btn-danger d-none mb-3 text-white" id="btnCleanSimpleAmount"><i class="fa-solid fa-pencil"></i> Limpar</button>
+          <button class="btn btnCloseSimpleAmount btn-outline-danger d-none mb-3 text-secondary" id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar</button>
+     </div>
+
+
+     <!--Modal de capital de juros simples-->
+     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleCapitalModal" id="simpleCapitalModal">
+          <h5 class="my-2 text-center text-primary">Cálculo de capital simples</h5>
+          <div class="row">
+               <div class="col-sm-6 mt-2">
+                    <label class="form-label text-primary" for="simpleAmountCapital">Montante (M)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleAmountCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleTimeCapital">Tempo (t)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Meses" id="simpleTimeCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleRateCapital">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Mensal" id="simpleRateCapital">
+               </div>
           </div>
-        </div>
-        <button class="btn btn-block btn-success mb-3" onclick="calculateTimeCompound()">Calcular período</button>
-        <input class="d-none form-control mb-3 result" type="text" disabled id="inputTimeResult">
-        <div class="d-none row" id="btnTimeResult">
-          <div class="col">
-            <button class="btn btn-block btn-outline-secondary mb-3" onclick="cleanTime()">Limpar</button>
+          <button class="btn btn-block btn-primary my-2" id="simpleCalculateCapital">Calcular capital</button>
+          <div class="row">
+               <div class="capitalResult col-sm-12 d-none mb-3" id="capitalResult">
+                    <label class="form-label text-center text-primary" for="simpleCapitalResult">Capital simples</label>
+                    <input class="border-0 bg-white d-none form-control simpleCapitalResult text-center text-primary" type="text" id="simpleCapitalResult" disabled>
+               </div>
           </div>
-          <div class="col">
-            <button class="btn btn-block btn-secondary mb-3" onclick="closeTime()">Fechar</button>
+          <button class="btn btnCleanSimpleCapital btn-danger d-none mb-3 text-white" id="btnCleanSimpleCapital"><i class="fa-solid fa-pencil"></i> Limpar</button>
+          <button class="btn btnCloseSimpleCapital btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleCapital"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar</button>
+     </div>
+
+     <!--Modal de taxa de juros simples-->
+     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleRateModal" id="simpleRateModal">
+          <h5 class="my-2 text-center text-primary">Cálculo da taxa simples</h5>
+          <div class="row">
+               <div class="col-sm-6 mt-2">
+                    <label class="form-label text-primary" for="simpleAmountRate">Montante (M)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleAmountRate">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleTimeRate">Tempo (t)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Meses" id="simpleTimeRate">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleCapitalRate">Capital (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleCapitalRate">
+               </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          <button class="btn btn-block btn-primary my-2" id="simpleCalculateRate">Calcular taxa</button>
+          <div class="row">
+               <div class="rateResult col-sm-12 d-none mb-3" id="rateResult">
+                    <label class="form-label text-center text-primary" for="simpleRateResult">Taxa simples (%)</label>
+                    <input class="border-0 bg-white d-none form-control simpleRateResult text-center text-primary" type="number" id="simpleRateResult" disabled>
+               </div>
+          </div>
+          <button class="btn btnCleanSimpleRate btn-danger d-none mb-3 text-white" id="btnCleanSimpleRate"><i class="fa-solid fa-pencil"></i> Limpar</button>
+          <button class="btn btnCloseSimpleRate btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleRate"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar ao início</button>
+     </div>
 
 
+     <!--Modal de período em juros simples-->
+     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleTimeModal" id="simpleTimeModal">
+          <h5 class="my-2 text-center text-primary">Cálculo do período simples</h5>
+          <div class="row">
+               <div class="col-sm-6 mt-2">
+                    <label class="form-label text-primary" for="simpleAmountTime">Montante (M)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleAmountTime">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleRateTime">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Mensal" id="simpleRateTime">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="simpleCapitalTime">Capital (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="simpleCapitalTime">
+               </div>
+          </div>
+          <button class="btn btn-block btn-primary my-2" id="simpleCalculateTime">Calcular período</button>
+          <div class="row">
+               <div class="timeResult col-sm-12 d-none mb-3" id="timeResult">
+                    <label class="form-label text-center text-primary" for="simpleTimeResult">Período simples (meses)</label>
+                    <input class="border-0 bg-white d-none form-control simpleTimeResult text-center text-primary" type="number" id="simpleTimeResult" disabled>
+                    <label class="form-label text-center text-primary" for="simpleFeesTimeResult">Juros do período</label>
+                    <input class="border-0 bg-white d-none form-control simpleFeesTimeResult text-center text-primary" type="text" id="simpleFeesTimeResult" disabled>
+               </div>
+          </div>
+          <button class="btn btnCleanSimpleTime btn-danger d-none mb-3 text-white" id="btnCleanSimpleTime"><i class="fa-solid fa-pencil"></i> Limpar</button>
+          <button class="btn btnCloseSimpleTime btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleTime"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar ao início</button>
+
+     </div>
 
 
+    
+     <!--JAVASCRIPT-->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-  <!--JS SCRIPTS-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-  <script src="js/comercialDiscount.js"></script>
-  <script src="js/compoundRate.js"></script>
-  <script src="js/paymentSeries.js"></script>
 </body>
-
 </html>
