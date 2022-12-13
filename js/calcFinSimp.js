@@ -1,5 +1,6 @@
 //INICIALIZAÇÃO DAS VARIÁVEIS 
 const amountResult = document.getElementById('amountResult');
+const btnButtonsAmountResult = document.getElementById('btnButtonsAmountResult');
 const btnCalculateSimpleAmount = document.getElementById('btnCalculateSimpleAmount');
 const btnCleanSimpleAmount = document.getElementById('btnCleanSimpleAmount');
 const btnCleanSimpleCapital = document.getElementById('btnCleanSimpleCapital');
@@ -9,7 +10,6 @@ const btnCloseMenuSimple = document.getElementById('btnCloseMenuSimple');
 const btnCloseSimpleAmount = document.getElementById('btnCloseSimpleAmount');
 const btnCloseSimpleCapital = document.getElementById('btnCloseSimpleCapital');
 const btnCloseSimpleRate = document.getElementById('btnCloseSimpleRate');
-const btnJComp = document.getElementById('btnJComp');
 const btnJSimp = document.getElementById('btnJSimp');
 const btnMenu = document.querySelector('.btnMenu');
 const btnSimpleAmount = document.getElementById('btnSimpleAmount');
@@ -57,13 +57,13 @@ btnJSimp.onclick = ()=> {
 }
 
 //Fecha menu geral e abre menu de montante de juros simples
-btnSimpleAmount.onclick = ()=> {
+btnSimpleAmount.onclick = ()=>{
      menuButtons.classList.add('d-none');
      simpleAmountModal.classList.remove('d-none');
 }
 
 //Calcula montante simples
-simpleCalculateAmount.onclick = ()=> {
+simpleCalculateAmount.onclick = ()=>{
      let simpleCapital = parseFloat(document.getElementById('simpleCapital').value.replace(".",","));
      let simpleTime = parseFloat(document.getElementById('simpleTime').value.replace(".",","));
      let simpleRate = parseFloat(document.getElementById('simpleRate').value.replace(".",","));
@@ -71,6 +71,7 @@ simpleCalculateAmount.onclick = ()=> {
           simpleAmountResult.value = (parseFloat(simpleCapital) * parseFloat((1 + (simpleTime * simpleRate) / 100))).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
           simpleAmountResult.classList.remove('d-none');
           amountResult.classList.remove('d-none');
+          btnButtonsAmountResult.classList.remove('d-none');
           btnCleanSimpleAmount.classList.remove('d-none');
           btnCloseSimpleAmount.classList.remove('d-none');
      }
@@ -79,21 +80,23 @@ simpleCalculateAmount.onclick = ()=> {
      }
 }
 
-//Limpa os campos do modal de capital de juros simples
+//Limpa os campos do modal de montante de juros simples
 btnCleanSimpleAmount.onclick = ()=>{
      document.getElementById('simpleCapital').value = '';
      document.getElementById('simpleTime').value = '';
      document.getElementById('simpleRate').value = '';
      document.getElementById('simpleAmountResult').value = '';
-     amountResult.classList.add('d-none');
+     amountResult.classList.remove('d-none');
+     btnButtonsAmountResult.classList.add('d-none');
 }
-
 
 //Fecha o menu de montante de juros simples
 btnCloseSimpleAmount.onclick = ()=> {
      menu.classList.add('d-none');
      menuButtons.classList.remove('d-none');
      simpleAmountModal.classList.add('d-none');
+     btnButtonsAmountResult.classList.add('d-none');
+     amountResult.classList.add('d-none');
 }
 
 //Volta para o menu geral
@@ -121,12 +124,12 @@ simpleCalculateCapital.onclick = ()=>{
      btnCloseSimpleCapital.classList.remove('d-none');
 }
 
-//Limpa os campos do modal de CAPITAL simples
+//Limpa os campos do modal de capital simples
 btnCleanSimpleCapital.onclick = ()=>{
-     simpleAmountCapital.value = "";
-     simpleTimeCapital.value = "";
-     simpleRateCapital.value = "";
-     simpleCapitalResult.value = "";
+     simpleAmountCapital.value = '';
+     simpleTimeCapital.value = '';
+     simpleRateCapital.value = '';
+     simpleCapitalResult.value = '';
 }
 
 //Fecha a tela de CAPITAL simples
@@ -134,6 +137,7 @@ btnCloseSimpleCapital.onclick = ()=>{
      menu.classList.add('d-none');
      menuButtons.classList.remove('d-none');
      simpleCapitalModal.classList.add('d-none');
+     capitalResult.classList.add('d-none');
 }
 
 //Abre a tela de TAXA de juros simples

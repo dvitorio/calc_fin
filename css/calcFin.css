@@ -40,12 +40,15 @@ body{
 #simpleAmountResult, 
 #simpleCapitalResult, 
 #simpleRateResult,
-#simpleTimeResult
+#simpleTimeResult,
+#amountComp
 {
      font-size: 2.5rem;
 }
 
-#simpleFeesTimeResult{
+#simpleFeesTimeResult,
+#compFeesAmountResult
+{
      font-size: 2rem;
 }
 
