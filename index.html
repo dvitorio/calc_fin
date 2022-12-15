@@ -16,6 +16,7 @@
 </head>
 <body>
 
+
      <!--Modal de confirmação de fechamento do aplicativo-->
      <div class="border closeAppConfirm col-sm-3 d-none radius mt-3 mx-auto" id="closeAppConfirm">
           <h5 class="text-center text-primary"></h5>
@@ -30,11 +31,11 @@
      </div>
 
      <!--Menu de regimes de juros-->
-     <div class="col-lg-4 container menu mx-auto p-2 radius shadow" id="menu">
-          <h6 class="my-2 text-center text-primary">Para começar, escolha o regime de juros desejado</h6>
+     <div class="col-lg-4 container menu mx-auto p-3 radius shadow" id="menu">
+          <h6 class="my-2 pb-2 text-center text-primary">Antes de começar, escolha o regime de juros desejado</h6>
           <button class="btn btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
           <button class="btn btn-outline-primary btn-block " id="btnJComp"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
-          <button class="btn btn-outline-secondary btn-block" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
+          <button class="btn btn-outline-secondary btn-block mb-3" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
      </div>
 
      <!--===================================================FUNÇÕES DE JUROS SIMPLES==========================================-->
@@ -227,11 +228,45 @@
                <div class="amountCompResult col-sm-12 d-none mb-3" id="amountCompResult">
                     <label class="form-label text-center text-primary" for="amountComp">Montante composto</label>
                     <input class="border-0 bg-white d-none form-control amountComp text-center text-primary" type="text" id="amountComp" disabled>
-                    <label class="form-label text-center text-primary" for="compFeesAmountResult">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control compFeesAmountResult text-center text-primary" type="number" id="compFeesAmountResult" disabled>
+               </div>
+               <div class="col-sm-12 d-none mb-3 amountFeesResult" id="amountFeesResult">
+                    <label class="form-label text-center text-primary" for="compFees">Juros do período</label>
+                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number" id="compFees" disabled>
                </div>
           </div>
           <button class="btn btn-block btn-outline-secondary mb-3">Voltar ao menu</button>
+     </div>
+
+
+     <!--Modal de capital composto-->
+     <div class="bg-white col-lg-4 compCapitalModal container d-none mx-auto p-2 radius shadow" id="compCapitalModal">
+          <h5 class="my-2 text-center text-primary">Cálculo do capital composto</h5>
+          <div class="row">
+               <div class="col-sm-6 mt-2">
+                    <label class="form-label text-primary" for="compAmountCapital">Montante (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="compAmountCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="compRateCapital">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="Mensal" id="compRateCapital">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="compTimeCapital">Período (t)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeCapital">
+               </div>
+          </div>
+          <button class="btn btn-block btn-primary mb-2" id="btnCalculateCompCapital">Calcular capital composto</button>
+          <div class="row">
+               <div class="capitalCompResult col-sm-12 d-none mb-3" id="capitalCompResult">
+                    <label class="form-label text-center text-primary" for="capitalComp">Montante composto</label>
+                    <input class="border-0 bg-white d-none form-control capitalComp text-center text-primary" type="text" id="capitalComp" disabled>
+               </div>
+               <div class="col-sm-12 d-none mb-3 capitalFeesResult" id="capitalFeesResult">
+                    <label class="form-label text-center text-primary" for="compFeesCapital">Juros do período</label>
+                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number" id="compFeesCapital" disabled>
+               </div>
+          </div>
+          <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
      </div>
 
 

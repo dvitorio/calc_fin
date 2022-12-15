@@ -41,13 +41,14 @@ body{
 #simpleCapitalResult, 
 #simpleRateResult,
 #simpleTimeResult,
-#amountComp
+#amountComp,
+#capitalComp
 {
      font-size: 2.5rem;
 }
 
 #simpleFeesTimeResult,
-#compFeesAmountResult
+#compFees
 {
      font-size: 2rem;
 }
@@ -60,4 +61,3 @@ body{
 {
      animation: open 0.5s ease-in-out;
 }
-
