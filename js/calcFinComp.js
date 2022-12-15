@@ -4,6 +4,7 @@ const amountCompResult = document.getElementById('amountCompResult');
 const amountFeesResult = document.getElementById('amountFeesResult');
 const btnCalculateCompAmount = document.getElementById('btnCalculateCompAmount');
 const btnCalculateCompCapital = document.getElementById('btnCalculateCompCapital');
+const btnCloseMenuComp = document.getElementById('btnCloseMenuComp');
 const btnCompAmount = document.getElementById('btnCompAmount');
 const btnCompCapital = document.getElementById('btnCompCapital');
 const btnJComp = document.getElementById('btnJComp');
@@ -13,7 +14,7 @@ const compAmountModal = document.getElementById('compAmountModal');
 const compCapitalModal = document.getElementById('compCapitalModal');
 const compFeesAmountResult = document.getElementById('compFeesAmountResult');
 const menuButtonsComp = document.getElementById('menuButtonsComp');
-const btnCloseMenuComp = document.getElementById('btnCloseMenuComp');
+const btnCompCapitalButtons = document.getElementById('btnCompCapitalButtons');
 
 
 //Acessa o menu de opções de juros compostos
@@ -50,10 +51,25 @@ btnCalculateCompCapital.addEventListener('click', ()=>{
      let compAmountCapital = parseFloat(document.getElementById('compAmountCapital').value);
      let compRateCapital = parseFloat(document.getElementById('compRateCapital').value);
      let compTimeCapital = parseFloat(document.getElementById('compTimeCapital').value);
-     capitalComp.value = ((compAmountCapital)/((1 + compRateCapital/100))**(compTimeCapital)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-     capitalCompResult.classList.remove('d-none');
-     capitalComp.classList.remove('d-none');
-})
+     if((compAmountCapital > 0) && (compRateCapital > 0) && (compTimeCapital > 0) ){
+          capitalComp.value = ((compAmountCapital)/((1 + compRateCapital/100))**(compTimeCapital)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+          btnCompCapitalButtons.classList.remove('d-none');
+          capitalCompResult.classList.remove('d-none');
+          capitalComp.classList.remove('d-none');
+     }
+     else{
+          alert("Capital, taxa e período precisam ser valores positivos!");
+     }
+});
+
+//Limpa os campos do modal de capital composto
+btnCleanCompCapitalResult.addEventListener('click', ()=>{
+     document.getElementById('compAmountCapital').value = '';
+     document.getElementById('compRateCapital').value = '';
+     document.getElementById('compTimeCapital').value = '';
+     document.getElementById('capitalComp').value = '';
+});
+
 
 //Volta ao menu de opções compostas
 function backCompMenu(){
