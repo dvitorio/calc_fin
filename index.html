@@ -34,12 +34,12 @@
      <!--Menu de regimes de juros-->
      <div class="col-lg-4 container menu mx-auto p-3 radius shadow" id="menu">
           <h6 class="my-2 pb-2 text-center text-primary">Antes de começar, escolha o regime de juros desejado</h6>
-          <button class="btn btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
           <button class="btn btn-outline-primary btn-block" id="btnJComp" onclick="openJComp()"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
+          <button class="btn btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
           <button class="btn btn-outline-secondary btn-block mb-3" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
      </div>
 
-     <!--===================================================FUNÇÕES DE JUROS SIMPLES==========================================-->
+     <!--================================================= MENU DE FUNÇÕES DE JUROS SIMPLES ========================================-->
      <!--Menu de opções de juros simples-->
      <div class="col-lg-6 container d-none menuButtons mx-auto" id="menuButtons">
           <div class="row">
@@ -87,7 +87,8 @@
           </div>
           <div class="btnButtonsAmountResult" id="btnButtonsAmountResult">
                <button class="btn btnCleanSimpleAmount btn-danger d-none mb-3 text-white" id="btnCleanSimpleAmount"><i class="fa-solid fa-pencil"></i> Limpar</button>
-               <button class="btn btnCloseSimpleAmount btn-outline-danger d-none mb-3 text-secondary" id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
+               <button class="btn btnPrintSimpleAmount btn-outline-secondary d-none mb-3 text-secondary" id="btnPrintSimpleAmount" onclick="toPrint()"><i class="fa-solid fa-file-pdf"></i> Imprimir</button>
+               <button class="btn btnCloseSimpleAmount btn-outline-secondary d-none mb-3 text-secondary" id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
           </div>
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar</button>
      </div>
@@ -117,8 +118,12 @@
                     <input class="border-0 bg-white d-none form-control simpleCapitalResult text-center text-primary" type="text" id="simpleCapitalResult" disabled>
                </div>
           </div>
-          <button class="btn btnCleanSimpleCapital btn-danger d-none mb-3 text-white" id="btnCleanSimpleCapital"><i class="fa-solid fa-pencil"></i> Limpar</button>
-          <button class="btn btnCloseSimpleCapital btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleCapital"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <div class="btnButtonsCapitalResult">
+               <button class="btn btn-block btnCleanSimpleCapital btn-danger d-none mb-3 text-white" id="btnCleanSimpleCapital"><i class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btn-block btnPrintSimpleCapital btn-danger d-none mb-3 text-white" id="btnPrintSimpleCapital"><i class="fa-solid fa-pencil"></i> Imprimir</button>
+               <button class="btn btn-block btnCloseSimpleCapital btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleCapital"><i class="fa-solid fa-xmark"></i> Sair</button>
+          </div>
+          
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar</button>
      </div>
 
@@ -146,8 +151,11 @@
                     <input class="border-0 bg-white d-none form-control simpleRateResult text-center text-primary" type="number" id="simpleRateResult" disabled>
                </div>
           </div>
-          <button class="btn btnCleanSimpleRate btn-danger d-none mb-3 text-white" id="btnCleanSimpleRate"><i class="fa-solid fa-pencil"></i> Limpar</button>
-          <button class="btn btnCloseSimpleRate btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleRate"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <div class="btnButtonsRateResult" id="btnButtonsRateResult">
+               <button class="btn btnCleanSimpleRate btn-danger d-none mb-3 text-white" id="btnCleanSimpleRate"><i class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btnPrintSimpleRate btn-outline-secondary d-none mb-3 text-secondary" id="btnPrintSimpleRate" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               <button class="btn btnCloseSimpleRate btn-outline-secondary d-none mb-3 text-secondary" id="btnCloseSimpleRate"><i class="fa-solid fa-xmark"></i> Sair</button>
+          </div>
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar ao início</button>
      </div>
 
@@ -178,8 +186,11 @@
                     <input class="border-0 bg-white d-none form-control simpleFeesTimeResult text-center text-primary" type="text" id="simpleFeesTimeResult" disabled>
                </div>
           </div>
-          <button class="btn btnCleanSimpleTime btn-danger d-none mb-3 text-white" id="btnCleanSimpleTime"><i class="fa-solid fa-pencil"></i> Limpar</button>
-          <button class="btn btnCloseSimpleTime btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleTime"><i class="fa-solid fa-xmark"></i> Sair</button>
+          <div class="btnButtonsTimeResult">
+               <button class="btn btnCleanSimpleTime btn-danger d-none mb-3 text-white" id="btnCleanSimpleTime"><i class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btnPrintSimpleTime btn-outline-secondary d-none mb-3 text-white" id="btnPrintSimpleTime" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               <button class="btn btnCloseSimpleTime btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleTime"><i class="fa-solid fa-xmark"></i> Sair</button>
+          </div>
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar ao início</button>
      </div>
 
@@ -236,11 +247,14 @@
                </div>
           </div>
           <div class="btnCompAmountButtons d-none row" id="btnCompAmountButtons">
-               <div class="col-sm-6">
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-danger mb-3" id="btnCleanCompAmountResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
-               <div class="col-sm-6">
-                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompAmountResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-secondary mb-3" id="btnPrintCompAmountResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               </div>
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseCompAmountResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
           <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
@@ -276,10 +290,13 @@
                </div>
           </div>
           <div class="btnCompCapitalButtons d-none row" id="btnCompCapitalButtons">
-               <div class="col-sm-6">
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-danger mb-3" id="btnCleanCompCapitalResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompCapitalResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               </div>
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompCapitalResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
@@ -316,10 +333,13 @@
                </div>
           </div>
           <div class="btnCompRateButtons d-none row" id="btnCompRateButtons">
-               <div class="col-sm-6">
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-danger mb-3" id="btnCleanCompRateResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompRateResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               </div>
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompRateResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
@@ -356,10 +376,13 @@
                </div>
           </div>
           <div class="btnCompTimeButtons d-none row" id="btnCompTimeButtons">
-               <div class="col-sm-6">
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-danger mb-3" id="btnCleanCompTimeResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
-               <div class="col-sm-6">
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompTimeResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               </div>
+               <div class="col-sm-4">
                     <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompTimeResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>

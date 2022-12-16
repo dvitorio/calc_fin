@@ -61,6 +61,11 @@ btnCloseMenuComp.addEventListener('click', ()=>{
      menuButtonsComp.classList.add('d-none');
 });
 
+//Imprime a página de resultados
+function toPrint(){
+     window.print();
+}
+
 
 /**========================================== MONTANTE COMPOSTO ================================= */
 //Acessa o modal de montante composto
@@ -181,10 +186,10 @@ btnCloseCompRateResult.onclick = ()=>{
 
 /**=================================================== PERÍODO COMPOSTO ========================================== */
 btnCompTime.onclick = ()=>{
-     compTimeModal.classList.add('d-none');
+     compTimeModal.classList.remove('d-none');
      compCapitalModal.classList.add('d-none');
      compRateModal.classList.add('d-none');
-     compAmountModal.classList.remove('d-none');
+     compAmountModal.classList.add('d-none');
      menuButtonsComp.classList.add('d-none');
 }
 

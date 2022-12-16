@@ -12,6 +12,8 @@ const btnCloseSimpleCapital = document.getElementById('btnCloseSimpleCapital');
 const btnCloseSimpleRate = document.getElementById('btnCloseSimpleRate');
 const btnJSimp = document.getElementById('btnJSimp');
 const btnMenu = document.querySelector('.btnMenu');
+const btnPrintSimpleAmount = document.getElementById('btnPrintSimpleAmount');
+const btnPrintSimpleRate = document.getElementById('btnPrintSimpleRate');
 const btnSimpleAmount = document.getElementById('btnSimpleAmount');
 const btnSimpleCapital = document.getElementById('btnSimpleCapital');
 const btnSimpleRate = document.getElementById('btnSimpleRate');
@@ -73,6 +75,7 @@ simpleCalculateAmount.onclick = ()=>{
           amountResult.classList.remove('d-none');
           btnButtonsAmountResult.classList.remove('d-none');
           btnCleanSimpleAmount.classList.remove('d-none');
+          btnPrintSimpleAmount.classList.remove('d-none');
           btnCloseSimpleAmount.classList.remove('d-none');
      }
      else {
@@ -160,6 +163,7 @@ simpleCalculateRate.onclick = ()=>{
                rateResult.classList.remove('d-none');
                simpleRateResult.classList.remove('d-none');
                btnCleanSimpleRate.classList.remove('d-none');
+               btnPrintSimpleRate.classList.remove('d-none');
                btnCloseSimpleRate.classList.remove('d-none');
           }
 }
