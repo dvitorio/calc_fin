@@ -37,9 +37,9 @@ const timeResult = document.getElementById('timeResult');
 
 
 //Fecha o aplicativo
-btnCloseApp.onclick = ()=>{
+btnCloseApp.addEventListener('click', ()=>{
      window.close();
-}
+});
 
 //Volta ao menu de opções
 function backMenu(){
