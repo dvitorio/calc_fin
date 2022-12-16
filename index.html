@@ -287,11 +287,91 @@
      </div>
 
 
+     <!--Modal de taxa composta-->
+     <div class="bg-white col-lg-4 compRateModal container d-none mx-auto p-2 radius shadow" id="compRateModal">
+          <h5 class="my-2 text-center text-primary">Cálculo da taxa composta</h5>
+          <div class="row">
+               <div class="col-sm-5 mt-2">
+                    <label class="form-label text-primary" for="compAmountRate">Montante (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="compAmountRate">
+               </div>
+               <div class="col-sm-4 mt-2">
+                    <label class="form-label text-primary" for="compCapitalRate">Capital (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="compCapitalRate">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="compTimeRate">Período (t)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeRate">
+               </div>
+          </div>
+          <button class="btn btn-block btn-primary mb-2" id="btnCalculateCompRate">Calcular taxa composta</button>
+          <div class="row">
+               <div class="rateCompResult col-sm-12 d-none mb-3" id="rateCompResult">
+                    <label class="form-label text-center text-primary" for="rateComp">Taxa mensal composta (%)</label>
+                    <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text" id="rateComp" disabled>
+               </div>
+               <div class="col-sm-12 d-none mb-3 rateFeesResult" id="rateFeesResult">
+                    <label class="form-label text-center text-primary" for="compFeesRate">Juros do período</label>
+                    <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary" type="number" id="compFeesRate" disabled>
+               </div>
+          </div>
+          <div class="btnCompRateButtons d-none row" id="btnCompRateButtons">
+               <div class="col-sm-6">
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompRateResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+               </div>
+               <div class="col-sm-6">
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompRateResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+               </div>
+          </div>
+          <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
+     </div>
+
+
+     <!--Modal de tempo composto-->
+     <div class="bg-white col-lg-4 compTimeModal container d-none mx-auto p-2 radius shadow" id="compTimeModal">
+          <h5 class="my-2 text-center text-primary">Cálculo do período composto</h5>
+          <div class="row">
+               <div class="col-sm-5 mt-2">
+                    <label class="form-label text-primary" for="compAmountTime">Montante (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="compAmountTime">
+               </div>
+               <div class="col-sm-4 mt-2">
+                    <label class="form-label text-primary" for="compCapitalTime">Capital (C)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="compCapitalTime">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="compRateTime">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="compRateTime">
+               </div>
+          </div>
+          <button class="btn btn-block btn-primary mb-2" id="btnCalculateCompTime">Calcular período composto</button>
+          <div class="row">
+               <div class="timeCompResult col-sm-12 d-none mb-3" id="timeCompResult">
+                    <label class="form-label text-center text-primary" for="timeComp">Período (meses)</label>
+                    <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text" id="timeComp" disabled>
+               </div>
+               <div class="col-sm-12 d-none mb-3 timeFeesResult" id="timeFeesResult">
+                    <label class="form-label text-center text-primary" for="compFeesTime">Juros do período</label>
+                    <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary" type="number" id="compFeesTime" disabled>
+               </div>
+          </div>
+          <div class="btnCompTimeButtons d-none row" id="btnCompTimeButtons">
+               <div class="col-sm-6">
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompTimeResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+               </div>
+               <div class="col-sm-6">
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompTimeResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+               </div>
+          </div>
+          <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
+     </div>
+
+
      <!--Rodapé da página-->
      <footer class="footer mt-5 text-center text-secondary p-2 rodape">
           <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio</h6>
           <h6 class="text-center text-secondary">Todos os direitos reservados. &copy;2022</h6>
-          <div class="centerRow midias">
+          <div class="centerRow midias mt-3">
                <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i class="fa-brands fa-github text-secondary"></i></a>
                <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i class="fa-brands fa-linkedin-in text-secondary"></i></a>
                <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i class="fa-solid fa-envelope text-secondary"></i></a>
@@ -299,6 +379,8 @@
           </div>
      </footer>
     
+
+
      <!--JAVASCRIPT-->
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
