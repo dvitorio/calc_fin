@@ -1,5 +1,6 @@
 //INICIALIZAÇÃO DAS VARIÁVEIS
 const amountComp = document.getElementById('amountComp');
+const amountCompFees = document.getElementById('amountCompFees');
 const amountCompResult = document.getElementById('amountCompResult');
 const amountFeesResult = document.getElementById('amountFeesResult');
 const btnCalculateCompAmount = document.getElementById('btnCalculateCompAmount');
@@ -9,9 +10,11 @@ const btnCalculateCompTime = document.getElementById('btnCalculateCompTime');
 const btnCleanCompAmountResult = document.getElementById('btnCleanCompAmountResult');
 const btnCleanCompCapitalResult = document.getElementById('btnCleanCompCapitalResult');
 const btnCleanCompRateResult = document.getElementById('btnCleanCompRateResult');
+const btnCleanCompTimeResult = document.getElementById('btnCleanCompTimeResult');
 const btnCloseCompRateResult = document.getElementById('btnCloseCompRateResult');
 const btnCloseCompTimeResult = document.getElementById('btnCloseCompTimeResult');
 const btnCloseMenuComp = document.getElementById('btnCloseMenuComp');
+const btnCloseTimeComp = document.getElementById('btnCloseTimeComp');
 const btnCompAmount = document.getElementById('btnCompAmount');
 const btnCompAmountButtons = document.getElementById('btnCompAmountButtons');
 const btnCompCapital = document.getElementById('btnCompCapital');
@@ -23,9 +26,9 @@ const btnCompTimeButtons = document.getElementById('btnCompTimeButtons');
 const btnJComp = document.getElementById('btnJComp');
 const capitalCompResult = document.getElementById('capitalCompResult');
 const compAmountCapital = document.getElementById('compAmountCapital');
+const compAmountFeesResult = document.getElementById('compAmountFeesResult');
 const compAmountModal = document.getElementById('compAmountModal');
 const compCapitalModal = document.getElementById('compCapitalModal');
-const compFeesAmountResult = document.getElementById('compFeesAmountResult');
 const compRate = document.getElementById('compRate');
 const compRateModal = document.getElementById('compRateModal');
 const compTimeModal = document.getElementById('compTimeModal');
@@ -68,10 +71,12 @@ function toPrint(){
 
 
 /**========================================== MONTANTE COMPOSTO ================================= */
-//Acessa o modal de montante composto
+//Abre o modal de montante composto
 btnCompAmount.onclick = ()=>{
      compAmountModal.classList.remove('d-none');
      menuButtonsComp.classList.add('d-none');
+     amountCompResult.classList.add('d-none');
+     btnCompAmountButtons.classList.add('d-none');
 }
 
 //Calcula o montante composto
@@ -81,9 +86,8 @@ btnCalculateCompAmount.addEventListener('click', ()=>{
      var compTimeAmount = parseFloat(document.getElementById('compTimeAmount').value.replace('.',','));
      amountComp.value = (compCapitalAmount * (1 + (compRateAmount/100))**(compTimeAmount)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
      amountCompResult.classList.remove('d-none');
-     amountComp.classList.remove('d-none');
-     compFees.classList.remove('d-none');
      btnCompAmountButtons.classList.remove('d-none');
+     amountComp.classList.remove('d-none');
 });
 
 //Limpa os campos do modal de montante composto
@@ -110,9 +114,9 @@ btnCompCapital.onclick = ()=>{
 
 //Calcula o capital composto
 btnCalculateCompCapital.addEventListener('click', ()=>{
-     let compAmountCapital = parseFloat(document.getElementById('compAmountCapital').value);
-     let compRateCapital = parseFloat(document.getElementById('compRateCapital').value);
-     let compTimeCapital = parseFloat(document.getElementById('compTimeCapital').value);
+     let compAmountCapital = parseFloat(document.getElementById('compAmountCapital').value.replace('.',','));
+     let compRateCapital = parseFloat(document.getElementById('compRateCapital').value.replace('.',','));
+     let compTimeCapital = parseFloat(document.getElementById('compTimeCapital').value.replace('.',','));
      if((compAmountCapital > 0) && (compRateCapital > 0) && (compTimeCapital > 0) ){
           capitalComp.value = ((compAmountCapital)/((1 + compRateCapital/100))**(compTimeCapital)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
           btnCompCapitalButtons.classList.remove('d-none');
@@ -154,9 +158,9 @@ btnCompRate.onclick = ()=>{
 
 //Calcula a taxa composta
 btnCalculateCompRate.addEventListener('click', ()=>{
-     let compAmountRate = parseFloat(document.getElementById('compAmountRate').value);
-     let compCapitalRate = parseFloat(document.getElementById('compCapitalRate').value);
-     let compTimeRate = parseFloat(document.getElementById('compTimeRate').value);
+     let compAmountRate = parseFloat(document.getElementById('compAmountRate').value.replace('.',','));
+     let compCapitalRate = parseFloat(document.getElementById('compCapitalRate').value.replace('.',','));
+     let compTimeRate = parseFloat(document.getElementById('compTimeRate').value.replace('.',','));
           if((compAmountRate > 0) && (compCapitalRate) && (compTimeRate > 0)){
                rateComp.value = ((((compAmountRate/compCapitalRate) ** (1/compTimeRate)) - 1) * 100).toFixed(2);
                rateCompResult.classList.remove('d-none');
@@ -164,7 +168,7 @@ btnCalculateCompRate.addEventListener('click', ()=>{
                btnCompRateButtons.classList.remove('d-none');
           }
           else{
-               alert('Montante, capital e o período precisam ser valores positivos!');
+               alert('Montante, capital e período precisam ser valores positivos!');
           }
 });
 
@@ -195,12 +199,12 @@ btnCompTime.onclick = ()=>{
 
 //Calcula o período composto
 btnCalculateCompTime.addEventListener('click', ()=>{
-     let compAmountTime = parseFloat(document.getElementById('compAmountTime').value);
-     let compCapitalTime = parseFloat(document.getElementById('compCapitalTime').value);
-     let compRateTime = parseFloat(document.getElementById('compRateTime').value/100);
+     let compAmountTime = parseFloat(document.getElementById('compAmountTime').value.replace('.',','));
+     let compCapitalTime = parseFloat(document.getElementById('compCapitalTime').value.replace('.',','));
+     let compRateTime = parseFloat(document.getElementById('compRateTime').value.replace('.',','));
      if((compAmountTime > 0) && (compCapitalTime > 0) && (compRateTime)){
           if(compAmountTime > compCapitalTime){
-               timeComp.value = ((Math.log(compAmountTime) - Math.log(compCapitalTime))/Math.log(1 + compRateTime)).toFixed(4);
+               timeComp.value = ((Math.log(compAmountTime) - Math.log(compCapitalTime/100))/Math.log(1 + compRateTime)).toFixed(4) + " meses";
                timeCompResult.classList.remove('d-none');
                timeComp.classList.remove('d-none');
                btnCompTimeButtons.classList.remove('d-none');
@@ -212,8 +216,15 @@ btnCalculateCompTime.addEventListener('click', ()=>{
      else{
           alert('Montante, capital e a taxa precisam ser valores positivos!');
      }
-
 });
+
+//Limpa os campos dao modal de período composto
+btnCleanCompTimeResult.onclick = ()=>{
+     document.getElementById('compAmountTime').value = '';
+     document.getElementById('compCapitalTime').value = '';
+     document.getElementById('compRateTime').value = '';
+     document.getElementById('timeComp').value = '';
+}
 
 //Fecha o modal de período composto  volta ao menu de opções
 btnCloseCompTimeResult.addEventListener('click', ()=>{
@@ -221,7 +232,17 @@ btnCloseCompTimeResult.addEventListener('click', ()=>{
      compRateModal.classList.add('d-none');
      compCapitalModal.classList.add('d-none');
      compAmountModal.classList.add('d-none');
-})
+     menuButtonsComp.classList.remove('d-none');
+     timeCompResult.classList.add('d-none');
+     btnCompTimeButtons.classList.add('d-none');
+});
+
+//Fecha o menu de período composto
+btnCloseTimeComp.addEventListener('click', ()=>{
+     compTimeModal.classList.add('d-none');
+     menuButtonsComp.classList.remove('d-none');
+     timeCompResult.classList.add('d-none');
+});
 
 
 

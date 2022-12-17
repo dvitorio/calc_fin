@@ -16,17 +16,8 @@
 </head>
 <body>
 
-
-     <!--Modal de confirmação de fechamento do aplicativo-->
-     <div class="border closeAppConfirm col-sm-3 d-none radius mt-3 mx-auto" id="closeAppConfirm">
-          <h5 class="text-center text-primary"></h5>
-          <h6 class="my-3 text-center text-primary">Tem certeza que deseja encerrar o aplicativo?</h6>
-          <button class="btn btn-outline-danger mb-3 w-25">Sim</button>
-          <button class="btn btn-outline-primary mb-3 w-25">Não</button>
-     </div>
-
      <!--Título da página-->
-     <div class="centerColumn col-sm-6 col-lg-6 container general my-2 mx-auto p-2" id="general">
+     <div class="centerColumn col-sm-6 col-lg-6 container general mt-5 mx-auto p-2" id="general">
           <img src="/img/math.png" alt="Calculator log" width="35">
           <h1 class="my-2 text-center text-primary">Calculadora financeira online</h1>
      </div>
@@ -34,30 +25,30 @@
      <!--Menu de regimes de juros-->
      <div class="col-lg-4 container menu mx-auto p-3 radius shadow" id="menu">
           <h6 class="my-2 pb-2 text-center text-primary">Antes de começar, escolha o regime de juros desejado</h6>
-          <button class="btn btn-outline-primary btn-block" id="btnJComp" onclick="openJComp()"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
-          <button class="btn btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
-          <button class="btn btn-outline-secondary btn-block mb-3" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
+          <button class="btn btn-lg btn-outline-primary btn-block" id="btnJComp"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
+          <button class="btn btn-lg btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
+          <button class="btn btn-lg btn-outline-secondary btn-block mb-3" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
      </div>
 
      <!--================================================= MENU DE FUNÇÕES DE JUROS SIMPLES ========================================-->
      <!--Menu de opções de juros simples-->
-     <div class="col-lg-6 container d-none menuButtons mx-auto" id="menuButtons">
+     <div class="col-xl-6 container d-none menuButtons mx-auto" id="menuButtons">
           <div class="row">
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleAmount"><i class="fa-solid fa-money-bill-trend-up"></i> Montante simples</button>
+                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleAmount"><i class="fa-solid fa-money-bill-trend-up"></i> Montante simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleCapital"><i class="fa-solid fa-circle-dollar-to-slot"></i> Capital simples</button>
+                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleCapital"><i class="fa-solid fa-circle-dollar-to-slot"></i> Capital simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i class="fa-solid fa-filter-circle-dollar"></i> Taxa simples</button>
+                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i class="fa-solid fa-filter-circle-dollar"></i> Taxa simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i class="fa-regular fa-hourglass-half"></i> Período simples</button>
+                    <button class="btn btn-md btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i class="fa-regular fa-hourglass-half"></i> Período simples</button>
                </div>
           </div>
           <div class="col-sm-3 p-1 mx-auto">
-               <button class="btn btnCloseMenuSimple btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
+               <button class="btn btn-md btnCloseMenuSimple btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
           </div>
      </div>
 
@@ -241,9 +232,9 @@
                     <label class="form-label text-center text-primary" for="amountComp">Montante composto</label>
                     <input class="border-0 bg-white d-none form-control amountComp text-center text-primary" type="text" id="amountComp" disabled>
                </div>
-               <div class="col-sm-12 d-none mb-3 amountFeesResult" id="amountFeesResult">
-                    <label class="form-label text-center text-primary" for="compFees">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number" id="compFees" disabled>
+               <div class="col-sm-12 d-none mb-3 compAmountFeesResult" id="compAmountFeesResult">
+                    <label class="form-label text-center text-primary" for="amountCompFees">Juros do período</label>
+                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number" id="amountCompFees" disabled>
                </div>
           </div>
           <div class="btnCompAmountButtons d-none row" id="btnCompAmountButtons">
@@ -383,23 +374,23 @@
                     <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompTimeResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompTimeResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompTimeResult"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
-          <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
+          <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseTimeComp">Voltar ao menu</button>
      </div>
 
 
      <!--Rodapé da página-->
      <footer class="footer mt-5 text-center text-secondary p-2 rodape">
-          <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio</h6>
-          <h6 class="text-center text-secondary">Todos os direitos reservados. &copy;2022</h6>
-          <div class="centerRow midias mt-3">
+          <div class="centerRow midias mb-2">
                <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i class="fa-brands fa-github text-secondary"></i></a>
                <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i class="fa-brands fa-linkedin-in text-secondary"></i></a>
                <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i class="fa-solid fa-envelope text-secondary"></i></a>
                <a class="mx-2" href="https://wa.me/5571983009859" target="_blank"><i class="fa-brands fa-whatsapp text-secondary"></i></a>
           </div>
+          <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio</h6>
+          <h6 class="text-center text-secondary">Todos os direitos reservados. &copy;2022</h6>
      </footer>
     
 
