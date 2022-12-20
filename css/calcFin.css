@@ -50,14 +50,16 @@ button:hover{
 #simpleCapitalResult, 
 #simpleRateResult,
 #simpleTimeResult,
-#timeComp
+#timeComp,
+#currentValueDescComp
 {
      font-size: 2.5rem;
 }
 
 #simpleFeesTimeResult,
 #compFees,
-#rateComp
+#rateComp,
+#descComp
 {
      font-size: 2rem;
 }

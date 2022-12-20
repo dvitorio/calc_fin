@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Calculadora financeira</title>
      <!--BOOTSTRAP-->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
      <!--FONTAWESOME-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
      <!--CSS-->
      <link rel="stylesheet" href="/css/calcFin.css" defer>
      <link rel="stylesheet" href="/css/calcAnimations.css" defer>
      <link rel="icon" type="imagem/png" href="/img/calculator.png" />
 </head>
+
 <body>
 
      <!--Título da página-->
@@ -22,12 +27,19 @@
           <h1 class="my-2 text-center text-primary">Calculadora financeira online</h1>
      </div>
 
-     <!--Menu de regimes de juros-->
+     <!--Opções de regimes de juros e descontos-->
      <div class="col-lg-4 container menu mx-auto p-3 radius shadow" id="menu">
           <h6 class="my-2 pb-2 text-center text-primary">Antes de começar, escolha o regime de juros desejado</h6>
-          <button class="btn btn-lg btn-outline-primary btn-block" id="btnJComp"><i class="fa-solid fa-money-check-dollar"></i> Juros compostos</button>
-          <button class="btn btn-lg btn-outline-primary btn-block" id="btnJSimp"><i class="fa-solid fa-money-bill-transfer"></i> Juros simples</button>
-          <button class="btn btn-lg btn-outline-secondary btn-block mb-3" id="btnCloseApp"><i class="fa-solid fa-door-open"></i> Fechar</button>
+          <button class="btn btn-lg btn-outline-primary btn-block mx-auto text-left w-100" id="btnJComp"><i
+                    class="fa-solid fa-money-bill-trend-up"></i> Juros Compostos</button>
+          <button class="btn btn-lg btn-outline-primary btn-block mx-auto text-left w-100" id="btnJSimp"><i
+                    class="fa-solid fa-money-bill-transfer"></i> Juros Simples</button>
+          <button class="btn btn-lg btn-outline-primary btn-block mx-auto text-left w-100" id="btnDescComp"><i
+                    class="fa-solid fa-circle-dollar-to-slot"></i> Desconto Composto</button>
+          <button class="btn btn-lg btn-outline-primary btn-block mx-auto text-left w-100" id="btnDescSimp"><i
+                    class="fa-solid fa-hand-holding-dollar"></i> Desconto Simples</button>
+          <button class="btn btn-lg btn-outline-secondary btn-block mb-3 mx-auto w-100" id="btnCloseApp"><i
+                    class="fa-solid fa-door-open"></i> Fechar</button>
      </div>
 
      <!--================================================= MENU DE FUNÇÕES DE JUROS SIMPLES ========================================-->
@@ -35,20 +47,25 @@
      <div class="col-xl-6 container d-none menuButtons mx-auto" id="menuButtons">
           <div class="row">
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleAmount"><i class="fa-solid fa-money-bill-trend-up"></i> Montante simples</button>
+                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleAmount"><i
+                              class="fa-solid fa-money-bill-trend-up"></i> Montante simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleCapital"><i class="fa-solid fa-circle-dollar-to-slot"></i> Capital simples</button>
+                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleCapital"><i
+                              class="fa-solid fa-circle-dollar-to-slot"></i> Capital simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i class="fa-solid fa-filter-circle-dollar"></i> Taxa simples</button>
+                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i
+                              class="fa-solid fa-filter-circle-dollar"></i> Taxa simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i class="fa-regular fa-hourglass-half"></i> Período simples</button>
+                    <button class="btn btn-md btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i
+                              class="fa-regular fa-hourglass-half"></i> Período simples</button>
                </div>
           </div>
           <div class="col-sm-3 p-1 mx-auto">
-               <button class="btn btn-md btnCloseMenuSimple btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
+               <button class="btn btn-md btnCloseMenuSimple btn-block btn-outline-danger mt-3 mx-auto"
+                    id="btnCloseMenuSimple"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
           </div>
      </div>
 
@@ -72,21 +89,27 @@
           <button class="btn btn-block btn-primary my-2" id="simpleCalculateAmount">Calcular montante</button>
           <div class="amountResult row">
                <div class="col-sm-12 d-none mb-3" id="amountResult">
-                    <label class="form-label text-center text-secondary" for="simpleAmountResult">Montante simples</label>
-                    <input class="border-0 bg-white d-none form-control simpleAmountResult text-center text-primary" type="text" id="simpleAmountResult" disabled>
+                    <label class="form-label text-center text-secondary" for="simpleAmountResult">Montante
+                         simples</label>
+                    <input class="border-0 bg-white d-none form-control simpleAmountResult text-center text-primary"
+                         type="text" id="simpleAmountResult" disabled>
                </div>
           </div>
           <div class="btnButtonsAmountResult" id="btnButtonsAmountResult">
-               <button class="btn btnCleanSimpleAmount btn-danger d-none mb-3 text-white" id="btnCleanSimpleAmount"><i class="fa-solid fa-pencil"></i> Limpar</button>
-               <button class="btn btnPrintSimpleAmount btn-outline-secondary d-none mb-3 text-secondary" id="btnPrintSimpleAmount" onclick="toPrint()"><i class="fa-solid fa-file-pdf"></i> Imprimir</button>
-               <button class="btn btnCloseSimpleAmount btn-outline-secondary d-none mb-3 text-secondary" id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
+               <button class="btn btnCleanSimpleAmount btn-danger d-none mb-3 text-white" id="btnCleanSimpleAmount"><i
+                         class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btnPrintSimpleAmount btn-outline-secondary d-none mb-3 text-secondary"
+                    id="btnPrintSimpleAmount" onclick="toPrint()"><i class="fa-solid fa-file-pdf"></i> Imprimir</button>
+               <button class="btn btnCloseSimpleAmount btn-outline-secondary d-none mb-3 text-secondary"
+                    id="btnCloseSimpleAmount"><i class="fa-solid fa-xmark"></i> Sair</button>
           </div>
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar</button>
      </div>
 
 
      <!--Modal de capital de juros simples-->
-     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleCapitalModal" id="simpleCapitalModal">
+     <div class="bg-white col-lg-4 container d-none mx-auto p-2 radius shadow simpleCapitalModal"
+          id="simpleCapitalModal">
           <h5 class="my-2 text-center text-primary">Cálculo de capital simples</h5>
           <div class="row">
                <div class="col-sm-6 mt-2">
@@ -106,15 +129,19 @@
           <div class="row">
                <div class="capitalResult col-sm-12 d-none mb-3" id="capitalResult">
                     <label class="form-label text-center text-primary" for="simpleCapitalResult">Capital simples</label>
-                    <input class="border-0 bg-white d-none form-control simpleCapitalResult text-center text-primary" type="text" id="simpleCapitalResult" disabled>
+                    <input class="border-0 bg-white d-none form-control simpleCapitalResult text-center text-primary"
+                         type="text" id="simpleCapitalResult" disabled>
                </div>
           </div>
           <div class="btnButtonsCapitalResult">
-               <button class="btn btn-block btnCleanSimpleCapital btn-danger d-none mb-3 text-white" id="btnCleanSimpleCapital"><i class="fa-solid fa-pencil"></i> Limpar</button>
-               <button class="btn btn-block btnPrintSimpleCapital btn-danger d-none mb-3 text-white" id="btnPrintSimpleCapital"><i class="fa-solid fa-pencil"></i> Imprimir</button>
-               <button class="btn btn-block btnCloseSimpleCapital btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleCapital"><i class="fa-solid fa-xmark"></i> Sair</button>
+               <button class="btn btn-block btnCleanSimpleCapital btn-danger d-none mb-3 text-white"
+                    id="btnCleanSimpleCapital"><i class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btn-block btnPrintSimpleCapital btn-danger d-none mb-3 text-white"
+                    id="btnPrintSimpleCapital"><i class="fa-solid fa-pencil"></i> Imprimir</button>
+               <button class="btn btn-block btnCloseSimpleCapital btn-outline-danger d-none mb-3 text-primary"
+                    id="btnCloseSimpleCapital"><i class="fa-solid fa-xmark"></i> Sair</button>
           </div>
-          
+
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar</button>
      </div>
 
@@ -139,13 +166,17 @@
           <div class="row">
                <div class="rateResult col-sm-12 d-none mb-3" id="rateResult">
                     <label class="form-label text-center text-primary" for="simpleRateResult">Taxa simples (%)</label>
-                    <input class="border-0 bg-white d-none form-control simpleRateResult text-center text-primary" type="number" id="simpleRateResult" disabled>
+                    <input class="border-0 bg-white d-none form-control simpleRateResult text-center text-primary"
+                         type="number" id="simpleRateResult" disabled>
                </div>
           </div>
           <div class="btnButtonsRateResult" id="btnButtonsRateResult">
-               <button class="btn btnCleanSimpleRate btn-danger d-none mb-3 text-white" id="btnCleanSimpleRate"><i class="fa-solid fa-pencil"></i> Limpar</button>
-               <button class="btn btnPrintSimpleRate btn-outline-secondary d-none mb-3 text-secondary" id="btnPrintSimpleRate" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
-               <button class="btn btnCloseSimpleRate btn-outline-secondary d-none mb-3 text-secondary" id="btnCloseSimpleRate"><i class="fa-solid fa-xmark"></i> Sair</button>
+               <button class="btn btnCleanSimpleRate btn-danger d-none mb-3 text-white" id="btnCleanSimpleRate"><i
+                         class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btnPrintSimpleRate btn-outline-secondary d-none mb-3 text-secondary"
+                    id="btnPrintSimpleRate" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               <button class="btn btnCloseSimpleRate btn-outline-secondary d-none mb-3 text-secondary"
+                    id="btnCloseSimpleRate"><i class="fa-solid fa-xmark"></i> Sair</button>
           </div>
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar ao início</button>
      </div>
@@ -171,16 +202,23 @@
           <button class="btn btn-block btn-primary my-2" id="simpleCalculateTime">Calcular período</button>
           <div class="row">
                <div class="timeResult col-sm-12 d-none mb-3" id="timeResult">
-                    <label class="form-label text-center text-primary" for="simpleTimeResult">Período simples (meses)</label>
-                    <input class="border-0 bg-white d-none form-control simpleTimeResult text-center text-primary" type="number" id="simpleTimeResult" disabled>
-                    <label class="form-label text-center text-primary" for="simpleFeesTimeResult">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control simpleFeesTimeResult text-center text-primary" type="text" id="simpleFeesTimeResult" disabled>
+                    <label class="form-label text-center text-primary" for="simpleTimeResult">Período simples
+                         (meses)</label>
+                    <input class="border-0 bg-white d-none form-control simpleTimeResult text-center text-primary"
+                         type="number" id="simpleTimeResult" disabled>
+                    <label class="form-label text-center text-primary" for="simpleFeesTimeResult">Juros do
+                         período</label>
+                    <input class="border-0 bg-white d-none form-control simpleFeesTimeResult text-center text-primary"
+                         type="text" id="simpleFeesTimeResult" disabled>
                </div>
           </div>
           <div class="btnButtonsTimeResult">
-               <button class="btn btnCleanSimpleTime btn-danger d-none mb-3 text-white" id="btnCleanSimpleTime"><i class="fa-solid fa-pencil"></i> Limpar</button>
-               <button class="btn btnPrintSimpleTime btn-outline-secondary d-none mb-3 text-white" id="btnPrintSimpleTime" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
-               <button class="btn btnCloseSimpleTime btn-outline-danger d-none mb-3 text-primary" id="btnCloseSimpleTime"><i class="fa-solid fa-xmark"></i> Sair</button>
+               <button class="btn btnCleanSimpleTime btn-danger d-none mb-3 text-white" id="btnCleanSimpleTime"><i
+                         class="fa-solid fa-pencil"></i> Limpar</button>
+               <button class="btn btnPrintSimpleTime btn-outline-secondary d-none mb-3 text-white"
+                    id="btnPrintSimpleTime" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               <button class="btn btnCloseSimpleTime btn-outline-danger d-none mb-3 text-primary"
+                    id="btnCloseSimpleTime"><i class="fa-solid fa-xmark"></i> Sair</button>
           </div>
           <button class="btn btn-block btn-outline-secondary" onclick="backMenu()">Voltar ao início</button>
      </div>
@@ -192,20 +230,25 @@
      <div class="col-lg-6 container d-none menuButtonsComp mx-auto" id="menuButtonsComp">
           <div class="row">
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompAmount"><i class="fa-solid fa-money-bill-trend-up"></i> Montante composto</button>
+                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompAmount"><i
+                              class="fa-solid fa-money-bill-trend-up"></i> Montante composto</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompCapital"><i class="fa-solid fa-circle-dollar-to-slot"></i> Capital composto</button>
+                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompCapital"><i
+                              class="fa-solid fa-circle-dollar-to-slot"></i> Capital composto</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompRate"><i class="fa-solid fa-filter-circle-dollar"></i> Taxa composta</button>
+                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompRate"><i
+                              class="fa-solid fa-filter-circle-dollar"></i> Taxa composta</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-block btn-primary btnCompTime my-2 p-2" id="btnCompTime"><i class="fa-regular fa-hourglass-half"></i> Período composto</button>
+                    <button class="btn btn-block btn-primary btnCompTime my-2 p-2" id="btnCompTime"><i
+                              class="fa-regular fa-hourglass-half"></i> Período composto</button>
                </div>
           </div>
           <div class="col-sm-3 p-1 mx-auto">
-               <button class="btn btnCloseMenuComp btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuComp"><i class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
+               <button class="btn btnCloseMenuComp btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuComp"><i
+                         class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
           </div>
      </div>
 
@@ -230,22 +273,27 @@
           <div class="row">
                <div class="amountCompResult col-sm-12 d-none mb-3" id="amountCompResult">
                     <label class="form-label text-center text-primary" for="amountComp">Montante composto</label>
-                    <input class="border-0 bg-white d-none form-control amountComp text-center text-primary" type="text" id="amountComp" disabled>
+                    <input class="border-0 bg-white d-none form-control amountComp text-center text-primary" type="text"
+                         id="amountComp" disabled>
                </div>
                <div class="col-sm-12 d-none mb-3 compAmountFeesResult" id="compAmountFeesResult">
                     <label class="form-label text-center text-primary" for="amountCompFees">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number" id="amountCompFees" disabled>
+                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number"
+                         id="amountCompFees" disabled>
                </div>
           </div>
           <div class="btnCompAmountButtons d-none row" id="btnCompAmountButtons">
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompAmountResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompAmountResult"><i
+                              class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-secondary mb-3" id="btnPrintCompAmountResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                    <button class="btn btn-block btn-secondary mb-3" id="btnPrintCompAmountResult"
+                         onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseCompAmountResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseCompAmountResult"
+                         onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
           <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
@@ -273,22 +321,27 @@
           <div class="row">
                <div class="capitalCompResult col-sm-12 d-none mb-3" id="capitalCompResult">
                     <label class="form-label text-center text-primary" for="capitalComp">Capital composto</label>
-                    <input class="border-0 bg-white d-none form-control capitalComp text-center text-primary" type="text" id="capitalComp" disabled>
+                    <input class="border-0 bg-white d-none form-control capitalComp text-center text-primary"
+                         type="text" id="capitalComp" disabled>
                </div>
                <div class="col-sm-12 d-none mb-3 capitalFeesResult" id="capitalFeesResult">
                     <label class="form-label text-center text-primary" for="compFeesCapital">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number" id="compFeesCapital" disabled>
+                    <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number"
+                         id="compFeesCapital" disabled>
                </div>
           </div>
           <div class="btnCompCapitalButtons d-none row" id="btnCompCapitalButtons">
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompCapitalResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompCapitalResult"><i
+                              class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompCapitalResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompCapitalResult"
+                         onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompCapitalResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompCapitalResult"
+                         onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
           <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
@@ -316,22 +369,27 @@
           <div class="row">
                <div class="rateCompResult col-sm-12 d-none mb-3" id="rateCompResult">
                     <label class="form-label text-center text-primary" for="rateComp">Taxa mensal composta (%)</label>
-                    <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text" id="rateComp" disabled>
+                    <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text"
+                         id="rateComp" disabled>
                </div>
                <div class="col-sm-12 d-none mb-3 rateFeesResult" id="rateFeesResult">
                     <label class="form-label text-center text-primary" for="compFeesRate">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary" type="number" id="compFeesRate" disabled>
+                    <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary"
+                         type="number" id="compFeesRate" disabled>
                </div>
           </div>
           <div class="btnCompRateButtons d-none row" id="btnCompRateButtons">
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompRateResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompRateResult"><i
+                              class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompRateResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompRateResult"
+                         onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompRateResult" onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompRateResult"
+                         onclick="backCompMenu()"><i class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
           <button class="btn btn-block btn-outline-secondary mb-3" onclick="backCompMenu()">Voltar ao menu</button>
@@ -359,48 +417,115 @@
           <div class="row">
                <div class="timeCompResult col-sm-12 d-none mb-3" id="timeCompResult">
                     <label class="form-label text-center text-primary" for="timeComp">Período (meses)</label>
-                    <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text" id="timeComp" disabled>
+                    <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text"
+                         id="timeComp" disabled>
                </div>
                <div class="col-sm-12 d-none mb-3 timeFeesResult" id="timeFeesResult">
                     <label class="form-label text-center text-primary" for="compFeesTime">Juros do período</label>
-                    <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary" type="number" id="compFeesTime" disabled>
+                    <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary"
+                         type="number" id="compFeesTime" disabled>
                </div>
           </div>
           <div class="btnCompTimeButtons d-none row" id="btnCompTimeButtons">
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompTimeResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanCompTimeResult"><i
+                              class="fa-solid fa-pencil"></i> Limpar</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompTimeResult" onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintCompTimeResult"
+                         onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
                </div>
                <div class="col-sm-4">
-                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompTimeResult"><i class="fa-solid fa-xmark"></i> Fechar</button>
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseCompTimeResult"><i
+                              class="fa-solid fa-xmark"></i> Fechar</button>
                </div>
           </div>
           <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseTimeComp">Voltar ao menu</button>
      </div>
 
+     <!--================================================ DESCONTOS ==============================================-->
+     <!--Modal de desconto composto-->
+     <div class="bg-white col-lg-4 descCompModal container d-none mx-auto p-2 radius shadow" id="descCompModal">
+          <h5 class="my-2 text-center text-primary">Cálculo do desconto composto</h5>
+          <div class="row">
+               <div class="col-sm-5 mt-2">
+                    <label class="form-label text-primary" for="compDescNominalValue">Valor nominal (VN)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(R$)" id="compDescNominalValue">
+               </div>
+               <div class="col-sm-4 mt-2">
+                    <label class="form-label text-primary" for="compDescTime">Tempo (n)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compDescTime">
+               </div>
+               <div class="col-sm-3 mt-2">
+                    <label class="form-label text-primary" for="compDescRate">Taxa (i)</label>
+                    <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="compDescRate">
+               </div>
+          </div>
+          <button class="btn btn-block btn-primary mb-2" id="btnCompDescCalculate">Calcular desconto composto</button>
+          <div class="row">
+               <div class="currentValueDescCompResult col-sm-12 d-none mb-3" id="currentValueDescCompResult">
+                    <label class="form-label text-center text-primary" for="currentValueDescComp">Valor líquido
+                         (R$)</label>
+                    <input class="border-0 bg-white currentValueDescComp d-none form-control text-center text-primary"
+                         type="text" id="currentValueDescComp" disabled>
+               </div>
+               <div class="descCompResult col-sm-12 d-none mb-3" id="descCompResult">
+                    <label class="form-label text-center text-primary" for="descComp">Valor do desconto (R$)</label>
+                    <input class="border-0 bg-white d-none form-control descComp text-center text-primary" type="number"
+                         id="descComp" disabled>
+               </div>
+          </div>
+          <div class="btnDescCompResultButtons d-none row" id="btnDescCompResultButtons">
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-danger mb-3" id="btnCleanDescCompResult"><i
+                              class="fa-solid fa-pencil"></i> Limpar</button>
+               </div>
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-outline-secondary mb-3" id="btnPrintDescCompResult"
+                         onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+               </div>
+               <div class="col-sm-4">
+                    <button class="btn btn-block btn-outline-danger mb-3" id="btnCloseDescCompResult"><i
+                              class="fa-solid fa-xmark"></i> Fechar</button>
+               </div>
+          </div>
+          <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseDescComp">Voltar ao menu</button>
+     </div>
+     
+
 
      <!--Rodapé da página-->
      <footer class="footer mt-5 text-center text-secondary p-2 rodape">
           <div class="centerRow midias mb-2">
-               <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i class="fa-brands fa-github text-secondary"></i></a>
-               <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i class="fa-brands fa-linkedin-in text-secondary"></i></a>
-               <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i class="fa-solid fa-envelope text-secondary"></i></a>
-               <a class="mx-2" href="https://wa.me/5571983009859" target="_blank"><i class="fa-brands fa-whatsapp text-secondary"></i></a>
+               <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i
+                         class="fa-brands fa-github text-secondary"></i></a>
+               <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i
+                         class="fa-brands fa-linkedin-in text-secondary"></i></a>
+               <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i
+                         class="fa-solid fa-envelope text-secondary"></i></a>
+               <a class="mx-2" href="https://wa.me/5571983009859" target="_blank"><i
+                         class="fa-brands fa-whatsapp text-secondary"></i></a>
           </div>
           <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio</h6>
           <h6 class="text-center text-secondary">Todos os direitos reservados. &copy;2022</h6>
      </footer>
-    
+
 
 
      <!--JAVASCRIPT-->
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
      <script src="/js/calcFinSimp.js"></script>
      <script src="/js/calcFinComp.js"></script>
+     <script src="/js/calcFinDesc.js"></script>
 
 </body>
+
 </html>
