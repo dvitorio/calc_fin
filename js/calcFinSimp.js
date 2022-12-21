@@ -1,5 +1,6 @@
 //INICIALIZAÇÃO DAS VARIÁVEIS 
 const amountResult = document.getElementById('amountResult');
+const blackScreen = document.getElementById('blackScreen');
 const btnButtonsAmountResult = document.getElementById('btnButtonsAmountResult');
 const btnCalculateSimpleAmount = document.getElementById('btnCalculateSimpleAmount');
 const btnCleanSimpleAmount = document.getElementById('btnCleanSimpleAmount');
@@ -19,7 +20,11 @@ const btnSimpleCapital = document.getElementById('btnSimpleCapital');
 const btnSimpleRate = document.getElementById('btnSimpleRate');
 const btnSimpleTime = document.getElementById('btnSimpleTime');
 const capitalResult = document.getElementById('capitalResult');
+const closeModalInfoJSimp = document.getElementById('closeModalInfoJSimp');
 const feesResult = document.getElementById('feesResult');
+const general = document.getElementById('general');
+const jSimpInfo = document.getElementById('jSimpInfo');
+const jSimpInfoLink = document.getElementById('jSimpInfoLink');
 const menu = document.getElementById('menu');
 const menuButtons = document.getElementById('menuButtons');
 const rateResult = document.getElementById('rateResult');
@@ -36,13 +41,18 @@ const simpleRateResult = document.getElementById('simpleRateResult');
 const simpleTimeModal = document.getElementById('simpleTimeModal');
 const simpleTimeResult = document.getElementById('simpleTimeResult');
 const timeResult = document.getElementById('timeResult');
-const general = document.getElementById('general');
 
 
-//Fecha o aplicativo
-/*btnCloseApp.addEventListener('click', ()=>{
-     window.close();
-});*/
+jSimpInfoLink.addEventListener('click', ()=>{
+     blackScreen.classList.remove('d-none');
+     jSimpInfo.classList.remove('d-none');
+});
+
+closeModalInfoJSimp.addEventListener('click', ()=>{
+     jSimpInfo.classList.add('d-none');
+     blackScreen.classList.add('d-none');
+
+})
 
 //Volta ao menu de opções
 function backMenu(){

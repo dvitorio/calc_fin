@@ -25,7 +25,7 @@
 <body>
 
      <!--Tela preta-->
-     <div class="blackScreen col d-none"></div>
+     <div class="blackScreen col d-none" id="blackScreen"></div>
 
      <!--Capa do site-->
      <div class="col-xl-10 container coverSite" id="coverSite">
@@ -41,7 +41,7 @@
                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" href="#">Juros simples</a>
+                       <a class="nav-link" id="jSimpInfoLink">Juros simples</a>
                      </li>
                      <li class="nav-item">
                        <a class="nav-link" href="#">Juros compostos</a>
@@ -75,7 +75,19 @@
                     <button class="btn btn-lg btn-secondary mx-auto" id="btnStart">Clique aqui para começar!</button>
                </div>
              </div>
+     </div>
 
+     <!--Juros simples - informação-->
+     <div class="text-left col-sm-12 col-lg-6 container d-none jSimpInfo mx-auto p-2 shadow" id="jSimpInfo">
+          <h2 class="text-center text-secondary"><b>Juros simples</b></h2>
+          <p class="p-2 fs-6">Os juros simples na prática não são utilizados em operações financeiras ou comerciais, exceto naquelas
+               em que o período de aplicação for inferior a uma unidade de tempo, ou seja, se por exemplo, a taxa de juros for de 5% ao mês
+               mas a transação for de 15 dias, então o regime de juros simples rende um montante maior que no de juros compostos. A fórmula de
+               cálculo dos juros simples é <b>J = C &middot; i &middot; n</b>,<br/><br/> onde <b>C</b> é o valor do capital ou da aplicação,<br/> <b>i</b>
+               é a taxa de juros da aplicação,<br/>
+               <b>n</b> é o tempo em que o valor ficou aplicado.  
+          </p>
+          <button class="btn btn-outline-secondary" id="closeModalInfoJSimp">Voltar ao início</button>
      </div>
 
      <!--Título da página-->
