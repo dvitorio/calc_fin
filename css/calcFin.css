@@ -7,6 +7,34 @@ body{
      width: 100vw !important;
 }
 
+.blackScreen{
+     background-color: rgba(0, 0, 0, 0.704);
+     min-height: 150vh !important;
+     min-width: 150vw !important;
+     position: absolute;
+     z-index: 100;
+     top: 0;
+     left: 0;
+}
+
+.coverSite{
+     position: absolute;
+     min-height: 100vh;
+     min-width: 100vw;
+     top: 0;
+     left: 0;
+}
+
+.coverPhoto img{
+     border-radius: 10px !important;
+     max-width: 900px !important;
+     width: 100%;
+}
+
+#btnStart{
+     border-radius: 6px !important;
+}
+
 button:hover{
      color: white !important;
 }

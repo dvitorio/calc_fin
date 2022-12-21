@@ -1,15 +1,24 @@
 //INICIALIZAÇÃO DAS VARIÁVEIS
-const btnCleanDescCompResult = document.getElementById('btnCleanDescCompResult');
 const btnCloseDescComp = document.getElementById('btnCloseDescComp');
 const btnCompDescCalculate = document.getElementById('btnCompDescCalculate');
 const btnDescComp = document.getElementById('btnDescComp');
-const btnDescCompResultButtons = document.getElementById('btnDescCompResultButtons');
 const btnPrintDescCompResult = document.getElementById('btnPrintDescCompResult');
 const currentValueDescComp = document.getElementById('currentValueDescComp');
 const currentValueDescCompResult = document.getElementById('currentValueDescCompResult');
 const descCompModal = document.getElementById('descCompModal');
 const descCompResult = document.getElementById('descCompResult');
+const btnStart = document.getElementById('btnStart');
+const coverSite = document.getElementById('coverSite');
+const navigation = document.getElementById('navigation');
 
+
+
+//Abre o menu geral do site
+btnStart.onclick = ()=>{
+     coverSite.classList.add('d-none');
+     menu.classList.remove('d-none');
+     general.classList.remove('d-none');
+}
 
 
 //Abre o modal de desconto composto
@@ -27,12 +36,6 @@ btnCompDescCalculate.onclick = ()=>{
                currentValueDescComp.value = (compDescNominalValue/((1 + compDescRate/100)**(compDescTime))).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
                currentValueDescCompResult.classList.remove('d-none');
                currentValueDescComp.classList.remove('d-none');
-               descCompResult.classList.remove('d-none');
-               let descComp = document.getElement('descComp');
-               descComp.value = (compDescNominalValue - currentValueDescComp).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-               btnDescCompResultButtons.classList.remove('d-none');
-               btnCleanDescCompResult.classList.remove('d-none');
-               descComp.classList.remove('d-none');
           }
           else{
                alert('Valor nominal, taxa e período precisam ser positivos!');

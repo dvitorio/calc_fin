@@ -36,6 +36,7 @@ const simpleRateResult = document.getElementById('simpleRateResult');
 const simpleTimeModal = document.getElementById('simpleTimeModal');
 const simpleTimeResult = document.getElementById('simpleTimeResult');
 const timeResult = document.getElementById('timeResult');
+const general = document.getElementById('general');
 
 
 //Fecha o aplicativo
@@ -50,6 +51,18 @@ function backMenu(){
       simpleRateModal.classList.add('d-none');
       simpleCapitalModal.classList.add('d-none');
       simpleTimeModal.classList.add('d-none');
+}
+
+function beginSite(){
+     coverSite.classList.remove('d-none');
+     menuButtons.classList.add('d-none');
+     simpleAmountModal.classList.add('d-none');
+     simpleRateModal.classList.add('d-none');
+     simpleCapitalModal.classList.add('d-none');
+     simpleTimeModal.classList.add('d-none');
+     general.classList.add('d-none');
+     menu.classList.add('d-none');
+
 }
 
 //Abre menu geral
