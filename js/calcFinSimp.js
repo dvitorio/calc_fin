@@ -40,9 +40,9 @@ const general = document.getElementById('general');
 
 
 //Fecha o aplicativo
-btnCloseApp.addEventListener('click', ()=>{
+/*btnCloseApp.addEventListener('click', ()=>{
      window.close();
-});
+});*/
 
 //Volta ao menu de opções
 function backMenu(){
@@ -62,7 +62,6 @@ function beginSite(){
      simpleTimeModal.classList.add('d-none');
      general.classList.add('d-none');
      menu.classList.add('d-none');
-
 }
 
 //Abre menu geral

@@ -23,7 +23,7 @@ const btnCompRate = document.getElementById('btnCompRate');
 const btnCompRateButtons = document.getElementById('btnCompRateButtons');
 const btnCompTime = document.getElementById('btnCompTime');
 const btnCompTimeButtons = document.getElementById('btnCompTimeButtons');
-const btnJComp = document.getElementById('btnJComp');
+const btnJComp = document.querySelector('.btnJComp');
 const capitalCompResult = document.getElementById('capitalCompResult');
 const compAmountCapital = document.getElementById('compAmountCapital');
 const compAmountFeesResult = document.getElementById('compAmountFeesResult');
@@ -40,9 +40,9 @@ const timeCompResult = document.getElementById('timeCompResult');
 
 
 //Fecha o aplicativo
-btnCloseApp.onclick = ()=>{
+/*btnCloseApp.onclick = ()=>{
      window.close();
-};
+};*/
 
 //Abre o menu de opções 
 btnJComp.addEventListener('click', ()=>{
@@ -58,7 +58,7 @@ function backCompMenu(){
      menu.classList.remove('d-none');
 }
 
-//Fechao menu de juros compostos
+//Fecha o menu de juros compostos
 btnCloseMenuComp.addEventListener('click', ()=>{
      menu.classList.remove('d-none');
      menuButtonsComp.classList.add('d-none');

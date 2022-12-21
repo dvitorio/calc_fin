@@ -5,7 +5,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Calculadora financeira</title>
+     <title>CalcFin - Calculadora financeira</title>
      <!--BOOTSTRAP-->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <!--FONTAWESOME-->
@@ -16,6 +16,10 @@
      <link rel="stylesheet" href="/css/calcFin.css" defer>
      <link rel="stylesheet" href="/css/calcAnimations.css" defer>
      <link rel="icon" type="imagem/png" href="/img/calculator.png" />
+     <!--JAVASCRIPT-->
+     <script src="./js/calcFinComp.js" defer></script>
+     <script src="./js/calcFinDesc.js" defer></script>
+     <script src="./js/calcFinSimp.js" defer></script>
 </head>
 
 <body>
@@ -83,7 +87,7 @@
      <!--Opções de regimes de juros e descontos-->
      <div class="col-lg-4 container d-none menu mx-auto p-3 radius shadow" id="menu">
           <h6 class="my-2 pb-2 text-center text-primary">Antes de começar, escolha o regime de juros desejado</h6>
-          <button class="btn btn-lg btn-outline-primary btn-block mb-2 mx-auto text-left w-100" id="btnJComp"><i
+          <button class="btn btn-lg btn-outline-primary btn-block btnJComp mb-2 mx-auto text-left w-100" id="btnJComp"><i
                     class="fa-solid fa-money-bill-trend-up"></i> Juros Compostos</button>
           <button class="btn btn-lg btn-outline-primary btn-block mb-2 mx-auto text-left w-100" id="btnJSimp"><i
                     class="fa-solid fa-money-bill-transfer"></i> Juros Simples</button>
@@ -283,19 +287,19 @@
      <div class="col-xl-8 container d-none menuButtonsComp mx-auto" id="menuButtonsComp">
           <div class="row">
                <div class="col-lg-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompAmount"><i
+                    <button type="button" class="btn btn-block btn-primary my-2 p-2" id="btnCompAmount"><i
                               class="fa-solid fa-money-bill-trend-up"></i> Montante composto</button>
                </div>
                <div class="col-lg-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompCapital"><i
+                    <button type="button" class="btn btn-block btn-primary my-2 p-2" id="btnCompCapital"><i
                               class="fa-solid fa-circle-dollar-to-slot"></i> Capital composto</button>
                </div>
                <div class="col-lg-3 p-1">
-                    <button class="btn btn-block btn-primary my-2 p-2" id="btnCompRate"><i
+                    <button type="button" class="btn btn-block btn-primary my-2 p-2" id="btnCompRate"><i
                               class="fa-solid fa-filter-circle-dollar"></i> Taxa composta</button>
                </div>
                <div class="col-lg-3 p-1">
-                    <button class="btn btn-block btn-primary btnCompTime my-2 p-2" id="btnCompTime"><i
+                    <button type="button" class="btn btn-block btn-primary btnCompTime my-2 p-2" id="btnCompTime"><i
                               class="fa-regular fa-hourglass-half"></i> Período composto</button>
                </div>
           </div>
@@ -370,7 +374,7 @@
                     <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeCapital">
                </div>
           </div>
-          <button class="btn btn-block btn-primary mb-2" id="btnCalculateCompCapital">Calcular capital composto</button>
+          <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompCapital">Calcular capital composto</button>
           <div class="row">
                <div class="capitalCompResult col-sm-12 d-none mb-3" id="capitalCompResult">
                     <label class="form-label text-center text-primary" for="capitalComp">Capital composto</label>
@@ -418,7 +422,7 @@
                     <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeRate">
                </div>
           </div>
-          <button class="btn btn-block btn-primary mb-2" id="btnCalculateCompRate">Calcular taxa composta</button>
+          <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompRate">Calcular taxa composta</button>
           <div class="row">
                <div class="rateCompResult col-sm-12 d-none mb-3" id="rateCompResult">
                     <label class="form-label text-center text-primary" for="rateComp">Taxa mensal composta (%)</label>
@@ -466,7 +470,7 @@
                     <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="compRateTime">
                </div>
           </div>
-          <button class="btn btn-block btn-primary mb-2" id="btnCalculateCompTime">Calcular período composto</button>
+          <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompTime">Calcular período composto</button>
           <div class="row">
                <div class="timeCompResult col-sm-12 d-none mb-3" id="timeCompResult">
                     <label class="form-label text-center text-primary" for="timeComp">Período (meses)</label>
@@ -514,7 +518,7 @@
                     <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="compDescRate">
                </div>
           </div>
-          <button class="btn btn-block btn-primary mb-2" id="btnCompDescCalculate">Calcular desconto composto</button>
+          <button class="btn btn-block btn-primary mb-2 w-100" id="btnCompDescCalculate">Calcular desconto composto</button>
           <div class="row">
                <div class="currentValueDescCompResult col-sm-12 d-none mb-3" id="currentValueDescCompResult">
                     <label class="form-label text-center text-primary" for="currentValueDescComp">Valor líquido
@@ -570,10 +574,6 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-     <script src="/js/calcFinSimp.js"></script>
-     <script src="/js/calcFinComp.js"></script>
-     <script src="/js/calcFinDesc.js"></script>
-
 </body>
 
 </html>
