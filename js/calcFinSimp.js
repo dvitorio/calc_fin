@@ -41,11 +41,15 @@ const simpleRateResult = document.getElementById('simpleRateResult');
 const simpleTimeModal = document.getElementById('simpleTimeModal');
 const simpleTimeResult = document.getElementById('simpleTimeResult');
 const timeResult = document.getElementById('timeResult');
+const body = document.getElementById('body');
+
+
 
 function startFromMenu(){
      coverSite.classList.add('d-none');
      general.classList.remove('d-none');
      menu.classList.remove('d-none');
+     body.style.backgroundColor = '#eab676';
 }
 
 //Abrir o modal de informações de juros simples
