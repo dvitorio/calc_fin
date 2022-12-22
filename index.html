@@ -28,38 +28,38 @@
      <div class="blackScreen col d-none" id="blackScreen"></div>
 
      <!--Capa do site-->
-     <div class="col-sm-12 container-fluid coverSite w-100" id="coverSite">
-          <nav class="container navbar navbar-expand-lg navbar-light navigation" id="navigation">
+     <div class="col-sm-12 coverSite w-100" id="coverSite">
+          <nav class="bg-secondary container-fluid navbar navbar-expand-lg navbar-dark navigation" id="navigation">
                <div class="container-fluid">
-                    <h1 class="h1 text-secondary" href="#">CalcFin</h1>
+                    <h1 class="h1 text-white" href="#"><b>CalcFin</b></h1>
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                    <span class="navbar-toggler-icon"></span>
                  </button>
                  <div class="collapse navbar-collapse" id="navbarNav">
                    <ul class="navbar-nav">
                      <li class="nav-item">
-                       <a class="nav-link active" aria-current="page" href="#">Home</a>
+                       <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" id="jSimpInfoLink">Juros simples</a>
+                       <a class="nav-link text-white" id="jSimpInfoLink">Juros simples</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" id="jCompInfoLink">Juros compostos</a>
+                       <a class="nav-link text-white" id="jCompInfoLink">Juros compostos</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" href="#" >Descontos (simples e compostos)</a>
+                       <a class="nav-link text-white" href="#" >Descontos (simples e compostos)</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" href="#" >Série de pagamentos</a>
+                       <a class="nav-link text-white" href="#" >Série de pagamentos</a>
                      </li>
                      <li class="nav-item">
-                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-linkedin-in text-secondary"></i></a>
-                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-github text-secondary"></i></a>
-                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-whatsapp text-secondary"></i></a>
-                         <a href=""><i class="mt-1 mr-2 nav-link fa-solid fa-envelope text-secondary"></i></a>
+                         <a href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i class="mt-1 mr-2 nav-link fa-brands fa-linkedin-in text-white"></i></a>
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-github text-white"></i></a>
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-whatsapp text-white"></i></a>
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-solid fa-envelope text-white"></i></a>
                      </li>
                      <li class="nav-item">
-                       <button class="btn btn-primary shadow" href="#" id="btnStarFromMenu" onclick="startFromMenu()">Começar agora</button>
+                       <button class="btn btn-primary ml-5 shadow" href="#" id="btnStarFromMenu" onclick="startFromMenu()">Começar agora</button>
                      </li>
                    </ul>
                  </div>
@@ -67,7 +67,7 @@
              </nav>
              <div class="row">
                <div class="col-sm-12 col-lg-6 coverPhoto">
-                    <img class="d-block img mt-2 mx-auto w-100" src="/img/woman.jpg" alt="">
+                    <img class="d-block img mx-auto w-100" src="/img/woman.jpg" alt="">
                </div>
                <div class="center col-sm-12 col-lg-6 coverPhrase">
                     <h1 class="mt-2 text-center text-secondary">Sua melhor calculadora financeira online</h1>
@@ -85,7 +85,7 @@
                          dentre outras informações financeiras úteis. E tudo isso onde e quando você quiser, a apenas um clique de distância.
                          <i class="fa-solid fa-angle-down mt-3"></i>
                     </p>
-                    <button class="btn btn-lg btn-secondary mb-5 mx-auto" id="btnStart">Clique aqui para começar!</button>
+                    <button class="btn btn-lg btn-primary mb-5 mx-auto" id="btnStart">Clique aqui para começar!</button>
                </div>
              </div>
      </div>
@@ -559,15 +559,13 @@
           <button class="btn btn-block btn-primary mb-2 w-100" id="btnCompDescCalculate">Calcular desconto composto</button>
           <div class="row">
                <div class="currentValueDescCompResult col-sm-12 d-none mb-3" id="currentValueDescCompResult">
-                    <label class="form-label text-center text-primary" for="currentValueDescComp">Valor líquido
-                         (R$)</label>
+                    <label class="form-label text-center text-primary" for="currentValueDescComp">Valor líquido (R$)</label>
                     <input class="border-0 bg-white currentValueDescComp d-none form-control text-center text-primary"
                          type="text" id="currentValueDescComp" disabled>
                </div>
                <div class="descCompResult col-sm-12 d-none mb-3" id="descCompResult">
                     <label class="form-label text-center text-primary" for="descComp">Valor do desconto (R$)</label>
-                    <input class="border-0 bg-white d-none form-control descComp text-center text-primary" type="number"
-                         id="descComp" disabled>
+                    <input class="border-0 bg-white d-none form-control descComp text-center text-primary" type="number" id="descComp" disabled>
                </div>
           </div>
           <div class="btnDescCompResultButtons d-none row" id="btnDescCompResultButtons">
@@ -588,18 +586,13 @@
      </div>
 
      
-
      <!--Rodapé da página-->
-     <footer class="container d-none footer mt-5 text-center text-secondary p-2 rodape">
+     <footer class="container d-none footer mt-5 text-center text-secondary p-2 rodape" id="rodape">
           <div class="centerRow midias mb-2">
-               <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i
-                         class="fa-brands fa-github text-secondary"></i></a>
-               <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i
-                         class="fa-brands fa-linkedin-in text-secondary"></i></a>
-               <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i
-                         class="fa-solid fa-envelope text-secondary"></i></a>
-               <a class="mx-2" href="https://wa.me/5571983009859" target="_blank"><i
-                         class="fa-brands fa-whatsapp text-secondary"></i></a>
+               <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i class="fa-brands fa-github text-secondary"></i></a>
+               <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i class="fa-brands fa-linkedin-in text-secondary"></i></a>
+               <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i class="fa-solid fa-envelope text-secondary"></i></a>
+               <a class="mx-2" href="https://wa.me/5571983009859" target="_blank"><i class="fa-brands fa-whatsapp text-secondary"></i></a>
           </div>
           <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio</h6>
           <h6 class="text-center text-secondary">Todos os direitos reservados. &copy;2022</h6>

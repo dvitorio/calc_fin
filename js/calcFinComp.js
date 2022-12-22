@@ -38,6 +38,7 @@ const jCompInfo = document.getElementById('jCompInfo');
 const jCompInfoLink = document.getElementById('jCompInfoLink');
 const menuButtonsComp = document.getElementById('menuButtonsComp');
 const rateCompResult = document.getElementById('rateCompResult');
+const rodape = document.getElementById('rodape');
 const timeCompResult = document.getElementById('timeCompResult');
 
 

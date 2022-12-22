@@ -26,7 +26,6 @@ body{
 }
 
 .coverPhoto img{
-     border-radius: 10px !important;
      max-width: 900px !important;
      width: 100%;
 }
@@ -58,6 +57,11 @@ a{cursor: pointer}
      display: flex;
      flex-wrap: nowrap;
      justify-content: center;
+}
+
+.navigation{
+     width: 100vw;
+     background-color: white;
 }
 
 .menu{background-color: white !important}
