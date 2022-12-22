@@ -28,10 +28,10 @@
      <div class="blackScreen col d-none" id="blackScreen"></div>
 
      <!--Capa do site-->
-     <div class="col-xl-10 container coverSite" id="coverSite">
-          <nav class="navbar navbar-expand-lg navbar-light navigation bg-light" id="navigation">
+     <div class="col-sm-12 container-fluid coverSite w-100" id="coverSite">
+          <nav class="container navbar navbar-expand-lg navbar-light navigation" id="navigation">
                <div class="container-fluid">
-                 <h1 class="h1 text-secondary" href="#">CalcFin</h1>
+                    <h1 class="h1 text-secondary" href="#">CalcFin</h1>
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                    <span class="navbar-toggler-icon"></span>
                  </button>
@@ -44,13 +44,22 @@
                        <a class="nav-link" id="jSimpInfoLink">Juros simples</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" href="#">Juros compostos</a>
+                       <a class="nav-link" id="jCompInfoLink">Juros compostos</a>
                      </li>
                      <li class="nav-item">
-                       <a class="nav-link" href="#" >Descontos</a>
+                       <a class="nav-link" href="#" >Descontos (simples e compostos)</a>
                      </li>
                      <li class="nav-item">
-                       <button class="btn btn-primary" href="#" >Contato</button>
+                       <a class="nav-link" href="#" >Série de pagamentos</a>
+                     </li>
+                     <li class="nav-item">
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-linkedin-in text-secondary"></i></a>
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-github text-secondary"></i></a>
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-brands fa-whatsapp text-secondary"></i></a>
+                         <a href=""><i class="mt-1 mr-2 nav-link fa-solid fa-envelope text-secondary"></i></a>
+                     </li>
+                     <li class="nav-item">
+                       <button class="btn btn-primary shadow" href="#" id="btnStarFromMenu" onclick="startFromMenu()">Começar agora</button>
                      </li>
                    </ul>
                  </div>
@@ -62,23 +71,27 @@
                </div>
                <div class="center col-sm-12 col-lg-6 coverPhrase">
                     <h1 class="mt-2 text-center text-secondary">Sua melhor calculadora financeira online</h1>
-                    <p class="text-center text-secondary">Que tal saber em quanto tempo você conquistaria realizar 
-                         o sonho da casa própria ou a realizar a viagem dos seus sonhos? Ou qual a taxa de juros que está sendo cobrada
-                         pela administradora de seu cartão de crédito ou consórcio? Ou ainda, quanto dinheiro você terá daqui a alguns anos
-                         para a faculdade de seu filho, aplicando hoje determinada quantia?
+                    <p class="text-center text-secondary">Que tal saber em quanto tempo você realizaria 
+                         o sonho da casa própria ou fazer aquela viagem dos seus sonhos?
+                         Ou então qual a taxa de juros que está sendo cobrada pela administradora de seu cartão de crédito 
+                         ou consórcio? 
+                    </p> 
+                    <p class="text-center text-secondary">Ou ainda, quanto dinheiro você terá daqui a alguns anos
+                         para a faculdade de seu filho, aplicando hoje determinada quantia mensalmente?
                     </p>
-                    <p class="text-center text-secondary"><b>Então a CalcFin é a ferramenta online perfeita para ajudar você com essas informações!</b> <br/><br/>
+                    <p class="centerColumn text-center text-secondary"><b class="mb-3">Então a CalcFin é a ferramenta online perfeita para você!</b> 
                          Com a CalcFin você pode calcular os principais indicadores financeiros, como
                          taxa de juros de uma aplicação, tempo necessário para obter determinado valor de resgate, valor atual de uma aplicação ou título, 
                          dentre outras informações financeiras úteis. E tudo isso onde e quando você quiser, a apenas um clique de distância.
+                         <i class="fa-solid fa-angle-down mt-3"></i>
                     </p>
-                    <button class="btn btn-lg btn-secondary mx-auto" id="btnStart">Clique aqui para começar!</button>
+                    <button class="btn btn-lg btn-secondary mb-5 mx-auto" id="btnStart">Clique aqui para começar!</button>
                </div>
              </div>
      </div>
 
      <!--Juros simples - informação-->
-     <div class="text-left col-sm-12 col-lg-6 container d-none jSimpInfo mx-auto p-2 shadow" id="jSimpInfo">
+     <div class="bg-white text-left col-sm-12 col-lg-6 container d-none jSimpInfo mx-auto p-2 shadow" id="jSimpInfo">
           <h2 class="text-center text-secondary"><b>Juros simples</b></h2>
           <p class="p-2 fs-6">Os juros simples na prática não são utilizados em operações financeiras ou comerciais, exceto naquelas
                em que o período de aplicação for inferior a uma unidade de tempo, ou seja, se por exemplo, a taxa de juros for de 5% ao mês
@@ -87,7 +100,20 @@
                é a taxa de juros da aplicação,<br/>
                <b>n</b> é o tempo em que o valor ficou aplicado.  
           </p>
-          <button class="btn btn-outline-secondary" id="closeModalInfoJSimp">Voltar ao início</button>
+          <button class="btn btn-outline-dark" id="closeModalInfoJSimp"><i class="fa-solid fa-house"></i> Voltar ao início</button>
+     </div>
+
+     <!--Juros compostos - informação-->
+     <div class="bg-white text-left col-sm-12 col-lg-6 container d-none jCompInfo mx-auto p-2 shadow" id="jCompInfo">
+          <h2 class="text-center text-secondary"><b>Juros Compostos</b></h2>
+          <p class="p-2 fs-6 text-dark">Diferentemente dos juros simples, os juros compostos são aplicados em praticamente todas as 
+               operações financeiras no Brasil, e são conhecidos como o regime no qual incidem "juros sobre juros", porque o valor
+               dos juros são calculados sobre o montante da aplicação, ao invés de apenas no capital inicial. Sua fórmula é <b>M = C(1 + i)<sup>n</sup>, </b> onde <b>C</b> é o valor do capital ou da aplicação,<br/> <b>i</b>
+               é a taxa de juros da aplicação,<br/>
+               <b>n</b> é o tempo em que o valor ficou aplicado e <br/>
+               <b>M</b> é o montante resultante da aplicação.  
+          </p>
+          <button type="button" class="btn btn-outline-dark mb-2" id="closeModalInfoJComp"><i class="fa-solid fa-house"></i> Voltar ao início</button>
      </div>
 
      <!--Título da página-->
@@ -116,19 +142,19 @@
      <div class="col-xl-6 container d-none menuButtons mx-auto" id="menuButtons">
           <div class="row">
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleAmount"><i
+                    <button type="button" class="btn btn-md btn-block btn-primary my-2 p-2 w-100" id="btnSimpleAmount"><i
                               class="fa-solid fa-money-bill-trend-up"></i> Montante simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleCapital"><i
+                    <button type="button" class="btn btn-md btn-block btn-primary my-2 p-2 w-100" id="btnSimpleCapital"><i
                               class="fa-solid fa-circle-dollar-to-slot"></i> Capital simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary my-2 p-2" id="btnSimpleRate"><i
+                    <button type="button" class="btn btn-md btn-block btn-primary my-2 p-2 w-100" id="btnSimpleRate"><i
                               class="fa-solid fa-filter-circle-dollar"></i> Taxa simples</button>
                </div>
                <div class="col-sm-3 p-1">
-                    <button class="btn btn-md btn-block btn-primary btnSimpleTime my-2 p-2" id="btnSimpleTime"><i
+                    <button type="button" class="btn btn-md btn-block btn-primary btnSimpleTime my-2 p-2 w-100" id="btnSimpleTime"><i
                               class="fa-regular fa-hourglass-half"></i> Período simples</button>
                </div>
           </div>
@@ -299,19 +325,19 @@
      <div class="col-xl-8 container d-none menuButtonsComp mx-auto" id="menuButtonsComp">
           <div class="row">
                <div class="col-lg-3 p-1">
-                    <button type="button" class="btn btn-block btn-primary my-2 p-2" id="btnCompAmount"><i
+                    <button type="button" class="btn btn-block btn-primary my-2 p-2 w-100" id="btnCompAmount"><i
                               class="fa-solid fa-money-bill-trend-up"></i> Montante composto</button>
                </div>
                <div class="col-lg-3 p-1">
-                    <button type="button" class="btn btn-block btn-primary my-2 p-2" id="btnCompCapital"><i
+                    <button type="button" class="btn btn-block btn-primary my-2 p-2 w-100" id="btnCompCapital"><i
                               class="fa-solid fa-circle-dollar-to-slot"></i> Capital composto</button>
                </div>
                <div class="col-lg-3 p-1">
-                    <button type="button" class="btn btn-block btn-primary my-2 p-2" id="btnCompRate"><i
+                    <button type="button" class="btn btn-block btn-primary my-2 p-2 w-100" id="btnCompRate"><i
                               class="fa-solid fa-filter-circle-dollar"></i> Taxa composta</button>
                </div>
                <div class="col-lg-3 p-1">
-                    <button type="button" class="btn btn-block btn-primary btnCompTime my-2 p-2" id="btnCompTime"><i
+                    <button type="button" class="btn btn-block btn-primary btnCompTime my-2 p-2 w-100" id="btnCompTime"><i
                               class="fa-regular fa-hourglass-half"></i> Período composto</button>
                </div>
           </div>
@@ -561,11 +587,10 @@
           <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseDescComp">Voltar ao menu</button>
      </div>
 
-
      
 
      <!--Rodapé da página-->
-     <footer class="d-none footer mt-5 text-center text-secondary p-2 rodape">
+     <footer class="container d-none footer mt-5 text-center text-secondary p-2 rodape">
           <div class="centerRow midias mb-2">
                <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i
                          class="fa-brands fa-github text-secondary"></i></a>

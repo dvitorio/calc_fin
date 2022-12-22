@@ -25,6 +25,7 @@ const btnCompTime = document.getElementById('btnCompTime');
 const btnCompTimeButtons = document.getElementById('btnCompTimeButtons');
 const btnJComp = document.querySelector('.btnJComp');
 const capitalCompResult = document.getElementById('capitalCompResult');
+const closeModalInfoJComp = document.getElementById('closeModalInfoJComp');
 const compAmountCapital = document.getElementById('compAmountCapital');
 const compAmountFeesResult = document.getElementById('compAmountFeesResult');
 const compAmountModal = document.getElementById('compAmountModal');
@@ -33,6 +34,8 @@ const compRate = document.getElementById('compRate');
 const compRateModal = document.getElementById('compRateModal');
 const compTimeModal = document.getElementById('compTimeModal');
 const compTimeRate = document.getElementById('compTimeRate');
+const jCompInfo = document.getElementById('jCompInfo');
+const jCompInfoLink = document.getElementById('jCompInfoLink');
 const menuButtonsComp = document.getElementById('menuButtonsComp');
 const rateCompResult = document.getElementById('rateCompResult');
 const timeCompResult = document.getElementById('timeCompResult');
@@ -49,6 +52,19 @@ btnJComp.addEventListener('click', ()=>{
      menuButtonsComp.classList.remove('d-none');
      menu.classList.add('d-none');
 });
+
+//Abrir o modal de informações de juros compostos
+jCompInfoLink.addEventListener('click', ()=>{
+     blackScreen.classList.remove('d-none');
+     jCompInfo.classList.remove('d-none');
+});
+
+//Fecha o modal de informações de juros compostos
+closeModalInfoJComp.addEventListener('click', ()=>{
+     jCompInfo.classList.add('d-none');
+     blackScreen.classList.add('d-none');
+});
+
 
 //Volta ao menu de opções compostas
 function backCompMenu(){

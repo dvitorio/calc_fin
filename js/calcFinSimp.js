@@ -42,16 +42,22 @@ const simpleTimeModal = document.getElementById('simpleTimeModal');
 const simpleTimeResult = document.getElementById('simpleTimeResult');
 const timeResult = document.getElementById('timeResult');
 
+function startFromMenu(){
+     coverSite.classList.add('d-none');
+     general.classList.remove('d-none');
+     menu.classList.remove('d-none');
+}
 
+//Abrir o modal de informações de juros simples
 jSimpInfoLink.addEventListener('click', ()=>{
      blackScreen.classList.remove('d-none');
      jSimpInfo.classList.remove('d-none');
 });
 
+//Fechar o modal de informações de juros simples
 closeModalInfoJSimp.addEventListener('click', ()=>{
      jSimpInfo.classList.add('d-none');
      blackScreen.classList.add('d-none');
-
 })
 
 //Volta ao menu de opções
