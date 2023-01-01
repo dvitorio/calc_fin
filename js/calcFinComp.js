@@ -86,7 +86,6 @@ function toPrint(){
      window.print();
 }
 
-
 /**========================================== MONTANTE COMPOSTO ================================= */
 //Abre o modal de montante composto
 btnCompAmount.onclick = ()=>{
@@ -101,10 +100,15 @@ btnCalculateCompAmount.addEventListener('click', ()=>{
      var compCapitalAmount = parseFloat(document.getElementById('compCapitalAmount').value.replace('.',','));
      var compRateAmount = parseFloat(document.getElementById('compRateAmount').value.replace('.',','));
      var compTimeAmount = parseFloat(document.getElementById('compTimeAmount').value.replace('.',','));
-     amountComp.value = (compCapitalAmount * (1 + (compRateAmount/100))**(compTimeAmount)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-     amountCompResult.classList.remove('d-none');
-     btnCompAmountButtons.classList.remove('d-none');
-     amountComp.classList.remove('d-none');
+          if((compCapitalAmount > 0) && (compRateAmount > 0.0) && (compTimeAmount > 0.0)){
+               amountComp.value = (compCapitalAmount * (1 + (compRateAmount/100))**(compTimeAmount)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+               amountCompResult.classList.remove('d-none');
+               btnCompAmountButtons.classList.remove('d-none');
+               amountComp.classList.remove('d-none');
+          }
+          else{
+               alert('Capital, taxa e período precisam ser positivos!');
+          }
 });
 
 //Limpa os campos do modal de montante composto
