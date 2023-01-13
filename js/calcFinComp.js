@@ -3,6 +3,7 @@ const amountComp = document.getElementById('amountComp');
 const amountCompFees = document.getElementById('amountCompFees');
 const amountCompResult = document.getElementById('amountCompResult');
 const amountFeesResult = document.getElementById('amountFeesResult');
+const btnBegin = document.getElementById('btnBegin');
 const btnCalculateCompAmount = document.getElementById('btnCalculateCompAmount');
 const btnCalculateCompCapital = document.getElementById('btnCalculateCompCapital');
 const btnCalculateCompRate = document.getElementById('btnCalculateCompRate');
@@ -34,7 +35,6 @@ const compRate = document.getElementById('compRate');
 const compRateModal = document.getElementById('compRateModal');
 const compTimeModal = document.getElementById('compTimeModal');
 const compTimeRate = document.getElementById('compTimeRate');
-const jCompInfo = document.getElementById('jCompInfo');
 const jCompInfoLink = document.getElementById('jCompInfoLink');
 const menuButtonsComp = document.getElementById('menuButtonsComp');
 const rateCompResult = document.getElementById('rateCompResult');
@@ -43,29 +43,11 @@ const timeCompResult = document.getElementById('timeCompResult');
 
 
 
-//Fecha o aplicativo
-/*btnCloseApp.onclick = ()=>{
-     window.close();
-};*/
-
 //Abre o menu de opções 
 btnJComp.addEventListener('click', ()=>{
      menuButtonsComp.classList.remove('d-none');
      menu.classList.add('d-none');
 });
-
-//Abrir o modal de informações de juros compostos
-jCompInfoLink.addEventListener('click', ()=>{
-     blackScreen.classList.remove('d-none');
-     jCompInfo.classList.remove('d-none');
-});
-
-//Fecha o modal de informações de juros compostos
-closeModalInfoJComp.addEventListener('click', ()=>{
-     jCompInfo.classList.add('d-none');
-     blackScreen.classList.add('d-none');
-});
-
 
 //Volta ao menu de opções compostas
 function backCompMenu(){
@@ -76,7 +58,7 @@ function backCompMenu(){
 }
 
 //Fecha o menu de juros compostos
-btnCloseMenuComp.addEventListener('click', ()=>{
+btnBegin.addEventListener('click', ()=>{
      menu.classList.remove('d-none');
      menuButtonsComp.classList.add('d-none');
 });
@@ -93,7 +75,9 @@ btnCompAmount.onclick = ()=>{
      menuButtonsComp.classList.add('d-none');
      amountCompResult.classList.add('d-none');
      btnCompAmountButtons.classList.add('d-none');
-}
+     general.classList.add('d-none');
+};
+
 
 //Calcula o montante composto
 btnCalculateCompAmount.addEventListener('click', ()=>{

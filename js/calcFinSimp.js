@@ -1,6 +1,5 @@
 //INICIALIZAÇÃO DAS VARIÁVEIS 
 const amountResult = document.getElementById('amountResult');
-const blackScreen = document.getElementById('blackScreen');
 const btnButtonsAmountResult = document.getElementById('btnButtonsAmountResult');
 const btnCalculateSimpleAmount = document.getElementById('btnCalculateSimpleAmount');
 const btnCleanSimpleAmount = document.getElementById('btnCleanSimpleAmount');
@@ -20,11 +19,8 @@ const btnSimpleCapital = document.getElementById('btnSimpleCapital');
 const btnSimpleRate = document.getElementById('btnSimpleRate');
 const btnSimpleTime = document.getElementById('btnSimpleTime');
 const capitalResult = document.getElementById('capitalResult');
-const closeModalInfoJSimp = document.getElementById('closeModalInfoJSimp');
 const feesResult = document.getElementById('feesResult');
 const general = document.getElementById('general');
-const jSimpInfo = document.getElementById('jSimpInfo');
-const jSimpInfoLink = document.getElementById('jSimpInfoLink');
 const menu = document.getElementById('menu');
 const menuButtons = document.getElementById('menuButtons');
 const rateResult = document.getElementById('rateResult');
@@ -44,25 +40,17 @@ const timeResult = document.getElementById('timeResult');
 const body = document.getElementById('body');
 
 
-
+//Inicia a função a partir do menu
 function startFromMenu(){
-     coverSite.classList.add('d-none');
      general.classList.remove('d-none');
      menu.classList.remove('d-none');
      body.style.backgroundColor = '#eab676';
-}
+};
 
-//Abrir o modal de informações de juros simples
-jSimpInfoLink.addEventListener('click', ()=>{
-     blackScreen.classList.remove('d-none');
-     jSimpInfo.classList.remove('d-none');
+//Abre o modal de juros simples
+btnJSimp.addEventListener('click', ()=>{
+     menuButtons.classList.remove('d-none');
 });
-
-//Fechar o modal de informações de juros simples
-closeModalInfoJSimp.addEventListener('click', ()=>{
-     jSimpInfo.classList.add('d-none');
-     blackScreen.classList.add('d-none');
-})
 
 //Volta ao menu de opções
 function backMenu(){
@@ -101,7 +89,7 @@ simpleCalculateAmount.onclick = ()=>{
      let simpleCapital = parseFloat(document.getElementById('simpleCapital').value.replace(".",","));
      let simpleTime = parseFloat(document.getElementById('simpleTime').value.replace(".",","));
      let simpleRate = parseFloat(document.getElementById('simpleRate').value.replace(".",","));
-     if ((simpleCapital != '' && simpleCapital > 0) && (simpleTime != '' && simpleTime > 0) && (simpleRate != '' && simpleRate > 0)) {
+     if (((simpleCapital != '') && (simpleCapital > 0)) && ((simpleTime != '') && (simpleTime > 0)) && ((simpleRate != '') && (simpleRate > 0))) {
           simpleAmountResult.value = (parseFloat(simpleCapital) * parseFloat((1 + (simpleTime * simpleRate) / 100))).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
           simpleAmountResult.classList.remove('d-none');
           amountResult.classList.remove('d-none');

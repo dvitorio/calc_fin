@@ -10,22 +10,23 @@ const descCompResult = document.getElementById('descCompResult');
 const btnStart = document.getElementById('btnStart');
 const coverSite = document.getElementById('coverSite');
 const navigation = document.getElementById('navigation');
+const descCompMenu = document.getElementById('descCompMenu');
+const btnDescRacComp = document.getElementById('btnDescRacComp');
 
 
-
-//Abre o menu geral do site
+/*//Abre o menu geral do site
 btnStart.onclick = ()=>{
-     coverSite.classList.add('d-none');
      menu.classList.remove('d-none');
      general.classList.remove('d-none');
-}
+}*/
+
+
 
 
 //Abre o modal de desconto composto
-btnDescComp.onclick = ()=>{
-     menu.classList.add('d-none');
-     descCompModal.classList.remove('d-none');
-}
+btnDescComp.addEventListener('click', ()=>{
+     btnDescRacComp.classList.remove('d-none');
+});
 
 //Calcula o valor descontado (valor líquido) composto
 btnCompDescCalculate.onclick = ()=>{
