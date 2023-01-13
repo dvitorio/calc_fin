@@ -15,7 +15,7 @@
      <!--CSS-->
      <link rel="stylesheet" href="/css/calcFin.css" defer>
      <link rel="stylesheet" href="/css/calcAnimations.css" defer>
-     <link rel="icon" type="imagem/png" href="/img/calculator.png" />
+     <link rel="icon" type="imagem/png" href="/img/calculadora.png" />
 </head>
 
 <body>
@@ -24,9 +24,9 @@
           <div class="blackScreen col d-none" id="blackScreen"></div>
 
           <!--Título da página-->
-          <div class="centerColumn col-sm-6 col-lg-6 container general mt-5 mx-auto p-2" id="general">
+          <div class="centerColumn col-sm-6 col-lg-6 container general mt-3 mx-auto p-2" id="general">
                <img src="/img/calculadora.png" alt="Calculator logo" width="35">
-               <h1 class="my-2 text-center text-white">CalcFin</h1>
+               <h1 class="mb-2 text-center text-white">Calculadora Financeira</h1>
           </div>
 
           <!--Opções de regimes de juros e descontos-->
@@ -38,10 +38,8 @@
                          class="fa-solid fa-money-bill-transfer"></i> Juros Simples</button>
                <button class="btn btn-lg btn-success btn-block mb-2 mx-auto text-left w-100" id="btnDescComp"><i
                          class="fa-solid fa-circle-dollar-to-slot"></i> Desconto Composto</button>
-               <button class="btn btn-lg btn-primary btn-block btnDescRacComp d-none mb-2 mx-auto text-left w-100" id="btnDescRacComp">Desconto racional</button>
-               <button class="btn btn-lg btn-primary btn-block d-none mb-2 mx-auto text-left w-100" id="btnDescComComp">Desconto comercial</button>
-               <button class="btn btn-lg btn-success btn-block mb-3 mx-auto text-left w-100" id="btnDescSimp"><i
-                         class="fa-solid fa-hand-holding-dollar"></i> Desconto Simples</button>
+               <button class="btn btn-lg btn-outline-primary btn-block btnDescRacComp d-none mb-2 mx-auto text-left w-100" id="btnDescRacComp">Desconto racional</button>
+               <button class="btn btn-lg btn-outline-primary btn-block btnDescComComp d-none mb-2 mx-auto text-left w-100" id="btnDescComComp">Desconto comercial</button>
           </div>
 
           <!--============================================== MENU DE FUNÇÕES DE JUROS SIMPLES ========================================-->
@@ -247,8 +245,8 @@
                                    class="fa-regular fa-hourglass-half"></i> Período composto</button>
                     </div>
                </div>
-               <div class="col-sm-3 p-1 mx-auto">
-                    <button class="btn btnCloseMenuComp btn-block btn-outline-danger mt-3 mx-auto" id="btnCloseMenuComp"><i
+               <div class="col-sm-3 col-xl-6 p-1 mx-auto">
+                    <button class="btn btnCloseMenuComp btn-block btn-danger mt-3 mx-auto w-100" id="btnCloseMenuComp"><i
                               class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
                </div>
           </div>
@@ -445,21 +443,9 @@
           </div>
 
           <!--============================================= DESCONTO COMPOSTO ===========================================-->
-          <!--Menu de opções de desconto composto-->
-          <div class="container col-lg-4 d-none descCompMenu mt-2" id="descCompMenu">
-               <div class="row">
-                    <div class="col-sm-6">
-                         <button class="btn btn-primary" id="btnDesCom">Desconto comercial</button>
-                    </div>
-                    <div class="col-sm-6">
-                         <button class="btn btn-primary" id="btnDesRac">Desconto racional</button>
-                    </div>
-               </div>
-          </div>
-
           <!--Modal de desconto racional composto-->
           <div class="bg-white col-lg-4 descCompModal container d-none mx-auto p-2 radius shadow" id="descCompModal">
-               <h5 class="my-2 text-center text-primary">Cálculo do desconto composto</h5>
+               <h5 class="my-2 text-center text-primary">Cálculo do desconto racional composto</h5>
                <div class="row">
                     <div class="col-sm-5 mt-2">
                          <label class="form-label text-primary" for="compDescNominalValue">Valor nominal (VN)</label>
@@ -502,19 +488,61 @@
                <button class="btn btn-block btn-outline-secondary mb-3" id="btnCloseDescComp">Voltar ao menu</button>
           </div>
 
+          <!--Modal de desconto comercial composto-->
+          <div class="bg-white col-lg-4 desComercialModal container d-none mx-auto p-2 radius shadow" id="desComercialModal">
+               <h5 class="my-2 text-center text-primary">Cálculo do desconto comercial composto</h5>
+               <div class="row">
+                    <div class="col-sm-5 mt-2">
+                         <label class="form-label text-primary" for="nominalValueComercialDesc">Valor nominal (VN)</label>
+                         <input class="form-control mb-2" type="number" placeholder="(R$)" id="nominalValueComercialDesc">
+                    </div>
+                    <div class="col-sm-4 mt-2">
+                         <label class="form-label text-primary" for="timeComercialDesc">Tempo (n)</label>
+                         <input class="form-control mb-2" type="number" placeholder="(Meses)" id="timeComercialDesc">
+                    </div>
+                    <div class="col-sm-3 mt-2">
+                         <label class="form-label text-primary" for="rateComercialDesc">Taxa (i)</label>
+                         <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="rateComercialDesc">
+                    </div>
+               </div>
+               <button class="btn btn-block btn-primary mb-2 w-100" id="btnComercialDesCalculate">Calcular desconto comercial</button>
+               <div class="row">
+                    <div class="currentValueComercialDesc col-sm-12 d-none mb-3" id="currentValueComercialDesc">
+                         <label class="form-label text-center text-primary" for="comercialValue">Valor líquido </label>
+                         <input class="border-0 bg-white comercialValue d-none form-control text-center text-primary"
+                              type="text" id="comercialValue" disabled>
+                    </div>
+                    <div class="comercialDescResult col-sm-12 d-none mb-3" id="comercialDescResult">
+                         <label class="form-label text-center text-primary" for="comercialDesc">Valor do desconto (R$)</label>
+                         <input class="border-0 bg-white d-none form-control comercialDesc text-center text-primary" type="number" id="comercialDesc" disabled>
+                    </div>
+               </div>
+               <div class="btnComercialDescButtonsResult d-none row" id="btnComercialDescButtonsResult">
+                    <div class="col-sm-4">
+                         <button class="btn btn-block btn-danger mb-3 w-100" onclick="cleanComercialModal()" id="btnCleanComercialResult"><i class="fa-solid fa-pencil"></i> Limpar</button>
+                    </div>
+                    <div class="col-sm-4">
+                         <button class="btn btn-block btn-outline-secondary mb-3 w-100" id="btnPrintComercialResult"
+                              onclick="toPrint()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                    </div>
+                    <div class="col-sm-4">
+                         <button class="btn btn-block btn-outline-danger mb-3 w-100" onclick="closeComercial()" id="btnCloseComercialResult"><i
+                                   class="fa-solid fa-xmark"></i> Fechar</button>
+                    </div>
+               </div>
+               <button class="btn btn-block btn-outline-secondary mb-3" onclick="closeComercial()" id="btnCloseComercial">Voltar ao menu</button>
+          </div>
 
-          <!--============================================= DESCONTO SIMPLES ===========================================-->
      
      <!--Rodapé da página-->
-     <footer class="container d-none footer mt-5 text-center text-secondary p-2 rodape" id="rodape">
+     <footer class="container footer mx-auto mt-5 text-center text-secondary p-2 rodape" id="rodape">
           <div class="centerRow midias mb-2">
                <a class="mx-2" href="https://github.com/dvitorio" target="_blank"><i class="fa-brands fa-github text-secondary"></i></a>
                <a class="mx-2" href="https://www.linkedin.com/in/danielvitorio/" target="_blank"><i class="fa-brands fa-linkedin-in text-secondary"></i></a>
                <a class="mx-2" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank"><i class="fa-solid fa-envelope text-secondary"></i></a>
                <a class="mx-2" href="https://wa.me/5571983009859" target="_blank"><i class="fa-brands fa-whatsapp text-secondary"></i></a>
           </div>
-          <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio</h6>
-          <h6 class="text-center text-secondary">Todos os direitos reservados. &copy;2022</h6>
+          <h6 class="text-center text-secondary">Desenvolvido por Daniel Vitorio - Todos os direitos reservados. &copy;2022</h6>
      </footer>
 
 

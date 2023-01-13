@@ -50,15 +50,15 @@ btnJComp.addEventListener('click', ()=>{
 });
 
 //Volta ao menu de opções compostas
-function backCompMenu(){
+/*function backCompMenu(){
      menuButtonsComp.classList.add('d-none');
      compAmountModal.classList.add('d-none');
      compCapitalModal.classList.add('d-none');
      menu.classList.remove('d-none');
-}
+}*/
 
-//Fecha o menu de juros compostos
-btnBegin.addEventListener('click', ()=>{
+//Volta ao menu geral
+btnCloseMenuComp.addEventListener('click', ()=>{
      menu.classList.remove('d-none');
      menuButtonsComp.classList.add('d-none');
 });
@@ -105,9 +105,14 @@ btnCleanCompAmountResult.addEventListener('click', ()=>{
 })
 
 //Fecha o modal de montante composto
-btnCloseCompAmountResult.onclick = ()=>{
+/*btnCloseCompAmountResult.onclick = ()=>{
+
+}*/
+
+function backCompMenu(){
      compAmountModal.classList.add('d-none');
      menuButtonsComp.classList.remove('d-none');
+     general.classList.remove('d-none');
 }
 
 /**======================================= CAPITAL COMPOSTO ===================================== */

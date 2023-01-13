@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Quicksand', sans-serif;
+}
+
 body{
      background-color: rgb(74, 83, 108) !important;
 }
@@ -50,7 +57,8 @@ button:hover{color: white !important}
 #simpleRateResult,
 #simpleTimeResult,
 #timeComp,
-#currentValueDescComp
+#currentValueDescComp,
+#comercialValue
 {
      font-size: 2.5rem;
 }
@@ -58,7 +66,8 @@ button:hover{color: white !important}
 #simpleFeesTimeResult,
 #compFees,
 #rateComp,
-#descComp
+#descComp,
+#comercialDesc
 {
      font-size: 2rem;
 }
@@ -86,9 +95,16 @@ a:hover{
 }
 
 .rodape{
-     position: absolute;
-     top: 85vh;
-     z-index: 102;
+     position: relative;
+     margin-bottom: 0;
+     margin-left: 0;
+     margin-right: 0;
 }
 
-.rodape h6{font-size: 0.8rem !important}
+.rodape i:hover{
+     transform: scale(1.2);
+     color: #f5f5f5 !important;
+}
+
+.rodape h6{font-size: 0.85rem !important}
+
