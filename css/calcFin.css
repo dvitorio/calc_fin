@@ -8,17 +8,7 @@
 }
 
 body{
-     background-color: rgb(74, 83, 108) !important;
-}
-
-.blackScreen{
-     background-color: rgba(0, 0, 0, 0.704);
-     min-height: 150vh !important;
-     min-width: 150vw !important;
-     position: absolute;
-     z-index: 100;
-     top: 0;
-     left: 0;
+     background-image: url('/img/background.jpg');
 }
 
 button:hover{color: white !important}
@@ -46,7 +36,12 @@ button:hover{color: white !important}
      justify-content: center;
 }
 
-.menu{background-color: white !important}
+.menu,
+.menuButtons
+{
+     background-color: transparent !important;
+     backdrop-filter: blur(20px) !important;
+}
 
 .menuButtons button{min-width: 150px !important}
 
@@ -82,7 +77,9 @@ button:hover{color: white !important}
 .compTimeModal,
 .menuButtonsComp
 {
-     animation: open 0.5s ease-in-out;
+     animation: open 0.5s ease-in-out !important;
+     background-color: transparent !important;
+     backdrop-filter: blur(20px) !important;
 }
 
 a:hover{
