@@ -20,7 +20,6 @@
 
 <body>
 
-
           <!--Título da página-->
           <div class="centerColumn col-sm-6 col-lg-6 container general mt-5 mx-auto p-2" id="general">
                <img src="/img/calculadora.png" alt="Calculator logo" width="35">
@@ -200,8 +199,7 @@
                <button class="btn btn-block btn-primary my-2 w-100" id="simpleCalculateTime">Calcular período</button>
                <div class="row">
                     <div class="timeResult col-sm-12 d-none mb-3" id="timeResult">
-                         <label class="form-label text-center text-primary" for="simpleTimeResult">Período simples
-                              (meses)</label>
+                         <label class="form-label text-center text-primary" for="simpleTimeResult">Período simples (meses)</label>
                          <input class="border-0 bg-white d-none form-control simpleTimeResult text-center text-primary"
                               type="number" id="simpleTimeResult" disabled>
                          <label class="form-label text-center text-primary" for="simpleFeesTimeResult">Juros do
@@ -243,7 +241,7 @@
                                    class="fa-regular fa-hourglass-half"></i> Período composto</button>
                     </div>
                </div>
-               <div class="col-sm-3 col-xl-6 p-1 mx-auto">
+               <div class="col-sm-3 col-xl-6 p-1 mb-3 mx-auto">
                     <button class="btn btnCloseMenuComp btn-block btn-danger mt-3 mx-auto w-100" id="btnCloseMenuComp"><i
                               class="fa-solid fa-house-chimney"></i> Voltar ao início</button>
                </div>
@@ -251,30 +249,30 @@
 
           <!--Modal de montante composto-->
           <div class="bg-white col-lg-4 compAmountModal container d-none mt-5 mx-auto p-2 radius shadow" id="compAmountModal">
-               <h5 class="my-2 text-center text-primary">Cálculo do montante composto</h5>
+               <h5 class="my-2 text-center text-white">Cálculo do montante composto</h5>
                <div class="row">
                     <div class="col-sm-6 mt-2">
-                         <label class="form-label text-primary" for="compCapitalAmount">Capital (C)</label>
+                         <label class="form-label text-white" for="compCapitalAmount">Capital (C)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compCapitalAmount">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compRateAmount">Taxa (i)</label>
+                         <label class="form-label text-white" for="compRateAmount">Taxa (i)</label>
                          <input class="form-control mb-2" type="number" placeholder="Mensal" id="compRateAmount">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compTimeAmount">Período (t)</label>
+                         <label class="form-label text-white" for="compTimeAmount">Período (t)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeAmount">
                     </div>
                </div>
                <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompAmount">Calcular montante composto</button>
                <div class="row">
                     <div class="amountCompResult col-sm-12 d-none mb-3" id="amountCompResult">
-                         <label class="form-label text-center text-primary" for="amountComp">Montante composto</label>
+                         <label class="form-label text-center text-white" for="amountComp">Montante composto</label>
                          <input class="border-0 bg-white d-none form-control amountComp text-center text-primary" type="text"
                               id="amountComp" disabled>
                     </div>
                     <div class="col-sm-12 d-none mb-3 compAmountFeesResult" id="compAmountFeesResult">
-                         <label class="form-label text-center text-primary" for="amountCompFees">Juros do período</label>
+                         <label class="form-label text-center text-white" for="amountCompFees">Juros do período</label>
                          <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number"
                               id="amountCompFees" disabled>
                     </div>
@@ -299,30 +297,30 @@
 
           <!--Modal de capital composto-->
           <div class="bg-white col-lg-4 compCapitalModal container d-none mx-auto p-2 radius shadow" id="compCapitalModal">
-               <h5 class="my-2 text-center text-primary">Cálculo do capital composto</h5>
+               <h5 class="my-2 text-center text-white">Cálculo do capital composto</h5>
                <div class="row">
                     <div class="col-sm-6 mt-2">
-                         <label class="form-label text-primary" for="compAmountCapital">Montante (C)</label>
+                         <label class="form-label text-white" for="compAmountCapital">Montante (C)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compAmountCapital">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compRateCapital">Taxa (i)</label>
+                         <label class="form-label text-white" for="compRateCapital">Taxa (i)</label>
                          <input class="form-control mb-2" type="number" placeholder="Mensal" id="compRateCapital">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compTimeCapital">Período (t)</label>
+                         <label class="form-label text-white" for="compTimeCapital">Período (t)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeCapital">
                     </div>
                </div>
                <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompCapital">Calcular capital composto</button>
                <div class="row">
                     <div class="capitalCompResult col-sm-12 d-none mb-3" id="capitalCompResult">
-                         <label class="form-label text-center text-primary" for="capitalComp">Capital composto</label>
+                         <label class="form-label text-center text-white" for="capitalComp">Capital composto</label>
                          <input class="border-0 bg-white d-none form-control capitalComp text-center text-primary"
                               type="text" id="capitalComp" disabled>
                     </div>
                     <div class="col-sm-12 d-none mb-3 capitalFeesResult" id="capitalFeesResult">
-                         <label class="form-label text-center text-primary" for="compFeesCapital">Juros do período</label>
+                         <label class="form-label text-center text-white" for="compFeesCapital">Juros do período</label>
                          <input class="border-0 bg-white d-none form-control compFees text-center text-primary" type="number"
                               id="compFeesCapital" disabled>
                     </div>
@@ -347,30 +345,30 @@
 
           <!--Modal de taxa composta-->
           <div class="bg-white col-lg-4 compRateModal container d-none mx-auto p-2 radius shadow" id="compRateModal">
-               <h5 class="my-2 text-center text-primary">Cálculo da taxa composta</h5>
+               <h5 class="my-2 text-center text-white">Cálculo da taxa composta</h5>
                <div class="row">
                     <div class="col-sm-5 mt-2">
-                         <label class="form-label text-primary" for="compAmountRate">Montante (C)</label>
+                         <label class="form-label text-white" for="compAmountRate">Montante (C)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compAmountRate">
                     </div>
                     <div class="col-sm-4 mt-2">
-                         <label class="form-label text-primary" for="compCapitalRate">Capital (C)</label>
+                         <label class="form-label text-white" for="compCapitalRate">Capital (C)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compCapitalRate">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compTimeRate">Período (t)</label>
+                         <label class="form-label text-white" for="compTimeRate">Período (t)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compTimeRate">
                     </div>
                </div>
                <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompRate">Calcular taxa composta</button>
                <div class="row">
                     <div class="rateCompResult col-sm-12 d-none mb-3" id="rateCompResult">
-                         <label class="form-label text-center text-primary" for="rateComp">Taxa mensal composta (%)</label>
+                         <label class="form-label text-center text-white" for="rateComp">Taxa mensal composta (%)</label>
                          <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text"
                               id="rateComp" disabled>
                     </div>
                     <div class="col-sm-12 d-none mb-3 rateFeesResult" id="rateFeesResult">
-                         <label class="form-label text-center text-primary" for="compFeesRate">Juros do período</label>
+                         <label class="form-label text-center text-white" for="compFeesRate">Juros do período</label>
                          <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary"
                               type="number" id="compFeesRate" disabled>
                     </div>
@@ -395,30 +393,30 @@
 
           <!--Modal de tempo composto-->
           <div class="bg-white col-lg-4 compTimeModal container d-none mx-auto p-2 radius shadow" id="compTimeModal">
-               <h5 class="my-2 text-center text-primary">Cálculo do período composto</h5>
+               <h5 class="my-2 text-center text-white">Cálculo do período composto</h5>
                <div class="row">
                     <div class="col-sm-5 mt-2">
-                         <label class="form-label text-primary" for="compAmountTime">Montante (C)</label>
+                         <label class="form-label text-white" for="compAmountTime">Montante (C)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compAmountTime">
                     </div>
                     <div class="col-sm-4 mt-2">
-                         <label class="form-label text-primary" for="compCapitalTime">Capital (C)</label>
+                         <label class="form-label text-white" for="compCapitalTime">Capital (C)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compCapitalTime">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compRateTime">Taxa (i)</label>
+                         <label class="form-label text-white" for="compRateTime">Taxa (i)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="compRateTime">
                     </div>
                </div>
                <button class="btn btn-block btn-primary mb-2 w-100" id="btnCalculateCompTime">Calcular período composto</button>
                <div class="row">
                     <div class="timeCompResult col-sm-12 d-none mb-3" id="timeCompResult">
-                         <label class="form-label text-center text-primary" for="timeComp">Período (meses)</label>
+                         <label class="form-label text-center text-white" for="timeComp">Período (meses)</label>
                          <input class="border-0 bg-white d-none form-control rateComp text-center text-primary" type="text"
                               id="timeComp" disabled>
                     </div>
                     <div class="col-sm-12 d-none mb-3 timeFeesResult" id="timeFeesResult">
-                         <label class="form-label text-center text-primary" for="compFeesTime">Juros do período</label>
+                         <label class="form-label text-center text-white" for="compFeesTime">Juros do período</label>
                          <input class="border-0 bg-white d-none form-control compFeesRate text-center text-primary"
                               type="number" id="compFeesTime" disabled>
                     </div>
@@ -443,30 +441,30 @@
           <!--============================================= DESCONTO COMPOSTO ===========================================-->
           <!--Modal de desconto racional composto-->
           <div class="bg-white col-lg-4 descCompModal container d-none mx-auto p-2 radius shadow" id="descCompModal">
-               <h5 class="my-2 text-center text-primary">Cálculo do desconto racional composto</h5>
+               <h5 class="my-2 text-center text-secondary">Cálculo do desconto racional composto</h5>
                <div class="row">
                     <div class="col-sm-5 mt-2">
-                         <label class="form-label text-primary" for="compDescNominalValue">Valor nominal (VN)</label>
+                         <label class="form-label text-secondary" for="compDescNominalValue">Valor nominal (VN)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="compDescNominalValue">
                     </div>
                     <div class="col-sm-4 mt-2">
-                         <label class="form-label text-primary" for="compDescTime">Tempo (n)</label>
+                         <label class="form-label text-secondary" for="compDescTime">Tempo (n)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Meses)" id="compDescTime">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="compDescRate">Taxa (i)</label>
+                         <label class="form-label text-secondary" for="compDescRate">Taxa (i)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="compDescRate">
                     </div>
                </div>
                <button class="btn btn-block btn-primary mb-2 w-100" id="btnCompDescCalculate">Calcular desconto composto</button>
                <div class="row">
                     <div class="currentValueDescCompResult col-sm-12 d-none mb-3" id="currentValueDescCompResult">
-                         <label class="form-label text-center text-primary" for="currentValueDescComp">Valor líquido (R$)</label>
+                         <label class="form-label text-center text-white" for="currentValueDescComp">Valor líquido (R$)</label>
                          <input class="border-0 bg-white currentValueDescComp d-none form-control text-center text-primary"
                               type="text" id="currentValueDescComp" disabled>
                     </div>
                     <div class="descCompResult col-sm-12 d-none mb-3" id="descCompResult">
-                         <label class="form-label text-center text-primary" for="descComp">Valor do desconto (R$)</label>
+                         <label class="form-label text-center text-white" for="descComp">Valor do desconto (R$)</label>
                          <input class="border-0 bg-white d-none form-control descComp text-center text-primary" type="number" id="descComp" disabled>
                     </div>
                </div>
@@ -488,30 +486,30 @@
 
           <!--Modal de desconto comercial composto-->
           <div class="bg-white col-lg-4 desComercialModal container d-none mx-auto p-2 radius shadow" id="desComercialModal">
-               <h5 class="my-2 text-center text-primary">Cálculo do desconto comercial composto</h5>
+               <h5 class="my-2 text-center text-secondary">Cálculo do desconto comercial composto</h5>
                <div class="row">
                     <div class="col-sm-5 mt-2">
-                         <label class="form-label text-primary" for="nominalValueComercialDesc">Valor nominal (VN)</label>
+                         <label class="form-label text-secondary" for="nominalValueComercialDesc">Valor nominal (VN)</label>
                          <input class="form-control mb-2" type="number" placeholder="(R$)" id="nominalValueComercialDesc">
                     </div>
                     <div class="col-sm-4 mt-2">
-                         <label class="form-label text-primary" for="timeComercialDesc">Tempo (n)</label>
+                         <label class="form-label text-secondary" for="timeComercialDesc">Tempo (n)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Meses)" id="timeComercialDesc">
                     </div>
                     <div class="col-sm-3 mt-2">
-                         <label class="form-label text-primary" for="rateComercialDesc">Taxa (i)</label>
+                         <label class="form-label text-secondary" for="rateComercialDesc">Taxa (i)</label>
                          <input class="form-control mb-2" type="number" placeholder="(Mensal)" id="rateComercialDesc">
                     </div>
                </div>
                <button class="btn btn-block btn-primary mb-2 w-100" id="btnComercialDesCalculate">Calcular desconto comercial</button>
                <div class="row">
                     <div class="currentValueComercialDesc col-sm-12 d-none mb-3" id="currentValueComercialDesc">
-                         <label class="form-label text-center text-primary" for="comercialValue">Valor líquido </label>
+                         <label class="form-label text-center text-white" for="comercialValue">Valor líquido </label>
                          <input class="border-0 bg-white comercialValue d-none form-control text-center text-primary"
                               type="text" id="comercialValue" disabled>
                     </div>
                     <div class="comercialDescResult col-sm-12 d-none mb-3" id="comercialDescResult">
-                         <label class="form-label text-center text-primary" for="comercialDesc">Valor do desconto (R$)</label>
+                         <label class="form-label text-center text-white" for="comercialDesc">Valor do desconto (R$)</label>
                          <input class="border-0 bg-white d-none form-control comercialDesc text-center text-primary" type="number" id="comercialDesc" disabled>
                     </div>
                </div>
