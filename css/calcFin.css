@@ -9,6 +9,7 @@
 
 body{
      background-image: url('/img/background.jpg');
+     background-size: cover;
 }
 
 button:hover{color: white !important}
